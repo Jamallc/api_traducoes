@@ -1,9 +1,39 @@
 <?php
-function create_token($user_code)
-{
 
-  global $SECRET;
-  $secret = $SECRET;
+function base64URLEncode($data) {
+  return str_replace(['+', '/', '='], ['-', '_', ''], base64_encode($data));
+}
+
+function encodeJWT($payload, $secret) {
+  $header = base64URLEncode('{"alg": "HS256", "typ": "JWT"}');
+  $payload = base64URLEncode(json_encode($payload));
+  $signature = base64URLEncode(
+    hash_hmac('sha256', $header.'.'.$payload, $secret, true)
+  );
+  return $header.'.'.$payload.'.'.$signature;
+}
+
+function decodeJWT($payload, $secret) {
+	$parts = explode('.', $payload);
+
+	$signature = base64URLEncode(
+		hash_hmac('sha256', $parts[0].'.'.$parts[1], $secret, true)
+	);
+
+	if($signature == $parts[2]) {
+
+		$payload = json_decode(
+			base64_decode($parts[1])
+		);
+
+		return $payload;
+	} else {
+		echo 'invalid token';
+	}
+}
+
+function create_token($user_code, $secret)
+{
   $tokenId = base64_encode(random_bytes(16));
   $serverName = $_SERVER['HTTP_HOST'];
   $issuedAt = (new DateTimeImmutable())->getTimestamp();
@@ -13,11 +43,11 @@ function create_token($user_code)
     'iss' => $serverName,
     'iat' => $issuedAt,
     'data' => array(
-      'userId' => $user_code,
+      'id' => $user_code
     ),
   );
 
-  $encode_jwt = JWT::encode($data, $secret);
+  $encode_jwt = encodeJWT($data, $secret);
 
   return base64_encode($encode_jwt);
 }
@@ -38,7 +68,7 @@ function validate_token($jwt)
   $secret = $SECRET;
 
   try {
-    $token = JWT::decode($jwt, $secret, array('HS256'));
+    $token = decodeJWT($jwt, $secret);
   } catch (Exception $e) {
     $myObj = new stdClass();
     $myObj->message = http_response_message(401);
