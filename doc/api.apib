@@ -1,0 +1,80 @@
+FORMAT: 1A
+HOST: http://localhost:8001/api_traducoes/
+TITLE: API
+
+# API Tradução
+
+# Group Geral
+
+## Introdução
+------
+
+O endereço base de comunicação é http://localhost:8001/api_traducoes/, acompanhado sempre do protocolo seguro https:// como prefixo. As versões da API são agrupadas por diretório de versão, sufixadas ao endereço base (https://localhost:8001/api_traducoes/).
+<br>
+
+## Aglio/Blueprint
+------
+
+Documentação do padrão blueprint: [https://apiblueprint.org/](https://apiblueprint.org/)
+
+Documentação do Aglio: [https://github.com/danielgtaylor/aglio](https://github.com/danielgtaylor/aglio)
+
+Exemplo do Aglio: [http://htmlpreview.github.io/?https://raw.githubusercontent.com/danielgtaylor/aglio/blob/master/examples/slate-triple.html](http://htmlpreview.github.io/?https://raw.githubusercontent.com/danielgtaylor/aglio/blob/master/examples/slate-triple.html)
+
+Exemplo documentado do Aglio: [https://github.com/danielgtaylor/aglio/blob/master/example.apib](https://github.com/danielgtaylor/aglio/blob/master/example.apib)
+
+Guia Markdown: [https://docs.pipz.com/central-de-ajuda/learning-center/guia-basico-de-markdown#open](https://docs.pipz.com/central-de-ajuda/learning-center/guia-basico-de-markdown#open)
+
+- Para subir um localhost: aglio -i api.apib --theme-variables flatly --theme-template triple -s
+
+- Para gerar o html/php: aglio -i api.apib --theme-variables flatly --theme-template triple -o index.php
+
+- Plugin para VS code: API Blueprint Viewer
+<br>
+<br>
+
+## Estruturação 
+O arquivo principal api.apib é o reponsavel por unir todos os endpoints e organiza-los nesta página referenciando o diretório de cada um deles. 
+
+Todos os endpoints estão organizados em pastas correspondentes aos grupos. 
+~~~ 
+doc
+├── acesso/
+|   └── acesso_login.md
+~~~
+
+# Group Acesso
+<!-- include(acesso/acesso_logout.md) -->
+<!-- include(acesso/acesso_login.md) -->
+<!-- include(acesso/acesso_cadastro.md) -->
+<!-- include(acesso/acesso_recuperar_senha.md) -->
+
+# Group Usuário
+<!-- include(usuario/usuario_cadastrar.md) -->
+<!-- include(usuario/usuario_editar_perfil.md) -->
+<!-- include(usuario/usuario_excluir.md) -->
+
+# Group Projeto
+<!-- include(projeto/projeto_cadastrar.md) -->
+<!-- include(projeto/projeto_editar.md) -->
+<!-- include(projeto/projeto_excluir.md) -->
+
+# Data Structure
+ 
+RETORNOS
+
+## success_200 (object)
++ code: 200 (number) - 200
++ mensagem: Success (string) - Success
+
+## fail_400 (object)
++ code: 400 (number) - 400
++ mensagem: Bad request (string) - Bad request
+
+## fail_401 (object)
++ code: 401 (number) - 401
++ mensagem: Unauthorized (string) - Unauthorized
+
+## fail_404 (object)
++ code: 404 (number) - 404
++ mensagem: Not Found (string) - Not Found
