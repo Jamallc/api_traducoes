@@ -8,7 +8,8 @@ status    | code | message
 ---       | ---  | ---
 `success` |  0   | projeto cadastrado com sucesso
 
-+ Parameters + PROJETO_NOME: `Projeto delivery` (required, string) - Email.
++ Parameters 
+    + PROJETO_NOME: `Projeto delivery` (required, string) - Email.
     + PROJETO_DESCRICAO: `Essa é a descrição do projeto delivery` (optional, string) - Email.
     + Idioma: `pt`(required, string) - Idioma.
 

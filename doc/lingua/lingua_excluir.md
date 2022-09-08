@@ -1,20 +1,20 @@
-## projeto_excluir [/projeto/projeto_excluir.php]
+## lingua_excluir [/lingua/lingua_excluir.php]
 
-## projeto_excluir [DELETE]
+## lingua_excluir [DELETE]
 
-Exclui um projeto.
+Excluir uma língua.
 
 status    | code | message
 ---       | ---  | ---
-`success` |  0   | projeto excluído com sucesso
+`success` |  0   | língua excluída com sucesso
 
 + Parameters 
-    + PROJETO_ID: `20` (required, string) - ID.
+    + LINGUA_ID: `23` (required, string) - Id.
     + Idioma: `pt`(required, string) - Idioma.
 
-+ Request projeto_excluir
++ Request lingua_excluir
     {
-        "PROJETO_ID": "20",
+        "LINGUA_ID": "23",
         "Idioma": "pt",
     }
 
@@ -22,7 +22,7 @@ status    | code | message
     {
         "status": "success",
         "code": 0,
-        "message": "projeto excluído com sucesso",
+        "message": "língua excluída com sucesso",
     }
 
 + Response 400

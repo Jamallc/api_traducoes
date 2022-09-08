@@ -1,20 +1,20 @@
-## projeto_excluir [/projeto/projeto_excluir.php]
+## texto_excluir [/texto/texto_excluir.php]
 
-## projeto_excluir [DELETE]
+## texto_excluir [DELETE]
 
-Exclui um projeto.
+Exclui um texto.
 
 status    | code | message
 ---       | ---  | ---
-`success` |  0   | projeto excluído com sucesso
+`success` |  0   | texto excluído com sucesso
 
 + Parameters 
-    + PROJETO_ID: `20` (required, string) - ID.
+    + TEXTO_ID: `15` (optional, string) - Id da frase.
     + Idioma: `pt`(required, string) - Idioma.
 
-+ Request projeto_excluir
++ Request texto_excluir
     {
-        "PROJETO_ID": "20",
+        "TEXTO_ID": "15",
         "Idioma": "pt",
     }
 
@@ -22,7 +22,7 @@ status    | code | message
     {
         "status": "success",
         "code": 0,
-        "message": "projeto excluído com sucesso",
+        "message": "texto excluído com sucesso",
     }
 
 + Response 400

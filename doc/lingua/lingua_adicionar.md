@@ -1,19 +1,23 @@
-## projeto_excluir [/projeto/projeto_excluir.php]
+## lingua_adicionar [/lingua/lingua_adicionar.php]
 
-## projeto_excluir [DELETE]
+## lingua_adicionar [POST]
 
-Exclui um projeto.
+Cadastra uma nova língua.
 
 status    | code | message
 ---       | ---  | ---
-`success` |  0   | projeto excluído com sucesso
+`success` |  0   | língua adicionada com sucesso
 
 + Parameters 
-    + PROJETO_ID: `20` (required, string) - ID.
+    + LINGUA_NOME: `Português` (required, string) - Idioma.
+    + LINGUA_SIGLA: `PT` (required, string) - Sigla.
+    + PROJETO_ID: `20` (required, string) - Id.
     + Idioma: `pt`(required, string) - Idioma.
 
-+ Request projeto_excluir
++ Request lingua_adicionar
     {
+        "LINGUA_NOME": "Português",
+        "LINGUA_SIGLA": "PT",
         "PROJETO_ID": "20",
         "Idioma": "pt",
     }
@@ -22,7 +26,7 @@ status    | code | message
     {
         "status": "success",
         "code": 0,
-        "message": "projeto excluído com sucesso",
+        "message": "língua adicionada com sucesso",
     }
 
 + Response 400

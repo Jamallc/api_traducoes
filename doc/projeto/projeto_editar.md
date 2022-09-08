@@ -1,8 +1,8 @@
 ## projeto_editar [/projeto/projeto_editar.php]
 
-## projeto_editar [POST]
+## projeto_editar [PUT]
 
-Cadastra um novo projeto.
+Edita um projeto.
 
 status    | code | message
 ---       | ---  | ---

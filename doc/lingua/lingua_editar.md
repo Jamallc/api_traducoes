@@ -1,20 +1,24 @@
-## projeto_excluir [/projeto/projeto_excluir.php]
+## lingua_editar [/lingua/lingua_editar.php]
 
-## projeto_excluir [DELETE]
+## lingua_editar [PUT]
 
-Exclui um projeto.
+Edita uma língua.
 
 status    | code | message
 ---       | ---  | ---
-`success` |  0   | projeto excluído com sucesso
+`success` |  0   | língua salva com sucesso
 
 + Parameters 
-    + PROJETO_ID: `20` (required, string) - ID.
+    + LINGUA_ID: `23` (required, string) - Id.
+    + LINGUA_NOME: `Português` (optional, string) - Nome.
+    + LINGUA_SIGLA: `PT` (optional, string) - Sigla.
     + Idioma: `pt`(required, string) - Idioma.
 
-+ Request projeto_excluir
++ Request lingua_editar
     {
-        "PROJETO_ID": "20",
+        "LINGUA_ID": "23",
+        "LINGUA_NOME": "Português",
+        "LINGUA_SIGLA": "PT",
         "Idioma": "pt",
     }
 
@@ -22,7 +26,7 @@ status    | code | message
     {
         "status": "success",
         "code": 0,
-        "message": "projeto excluído com sucesso",
+        "message": "língua salva com sucesso",
     }
 
 + Response 400

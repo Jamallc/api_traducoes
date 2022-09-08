@@ -1,6 +1,6 @@
 ## usuario_editar_perfil [/usuarios/usuario_editar_perfil.php]
 
-## usuario_editar_perfil [POST]
+## usuario_editar_perfil [PUT]
 
 Edita o perfil do usuário.
 
