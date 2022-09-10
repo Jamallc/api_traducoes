@@ -1,6 +1,6 @@
 ## sync_textos [/sync/sync_textos.php]
 
-## sync_textos [GET]
+## sync_textos [POST]
 
 Retorna todas as frases cadastradas no idioma.
 
@@ -9,11 +9,13 @@ status    | code | message
 `success` |  0   | success
 
 + Parameters 
+    + TOKEN: `ASDDF1234JKDFL=` (required, string) - Token.
     + LINGUA_ID: `23`(required, string) - Id da lingua.
     + Idioma: `pt`(required, string) - Idioma.
 
 + Request sync_textos
     {
+        "TOKEN": "ASDDF1234JKDFL=",
         "LINGUA_ID": "23",
         "Idioma": "pt",
     }

@@ -1,6 +1,6 @@
 ## sync_editores [/sync/sync_editores.php]
 
-## sync_editores [GET]
+## sync_editores [POST]
 
 Retorna todos os editores cadastrados no projeto.
 
@@ -9,11 +9,13 @@ status    | code | message
 `success` |  0   | success
 
 + Parameters 
+    + TOKEN: `ASDDF1234JKDFL=` (required, string) - Token.
     + PROJETO_ID: `20`(required, string) - Id do projeto.
     + Idioma: `pt`(required, string) - Idioma.
 
 + Request sync_editores
     {
+        "TOKEN": "ASDDF1234JKDFL=",
         "PROJETO_ID": "20",
         "Idioma": "pt",
     }

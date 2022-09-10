@@ -1,6 +1,6 @@
 ## acesso_logout [/acesso/acesso_logout.php]
 
-## acesso_logout [GET]
+## acesso_logout [POST]
 
 Perde o acesso ao aplicativo interno e seu Token.
 
@@ -8,6 +8,13 @@ status    | code | message
 ---       | ---  | ---
 `success` |  0   | logout concluído
 
++ Parameters
+    + TOKEN: `ASDDF1234JKDFL=` (required, string) - Token.
+
++ Request acesso_login
+    {
+        "TOKEN": "ASDDF1234JKDFL="
+    }
 
 + Response 200
     {

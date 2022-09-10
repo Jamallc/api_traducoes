@@ -9,6 +9,7 @@ status    | code | message
 `success` |  0   | língua adicionada com sucesso
 
 + Parameters 
+    + TOKEN: `ASDDF1234JKDFL=` (required, string) - Token.
     + LINGUA_NOME: `Português` (required, string) - Idioma.
     + LINGUA_SIGLA: `PT` (required, string) - Sigla.
     + PROJETO_ID: `20` (required, string) - Id.
@@ -16,6 +17,7 @@ status    | code | message
 
 + Request lingua_adicionar
     {
+        "TOKEN": "ASDDF1234JKDFL=",
         "LINGUA_NOME": "Português",
         "LINGUA_SIGLA": "PT",
         "PROJETO_ID": "20",

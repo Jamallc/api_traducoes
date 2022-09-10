@@ -9,11 +9,13 @@ status    | code | message
 `success` |  0   | língua excluída com sucesso
 
 + Parameters 
+    + TOKEN: `ASDDF1234JKDFL=` (required, string) - Token.
     + LINGUA_ID: `23` (required, string) - Id.
     + Idioma: `pt`(required, string) - Idioma.
 
 + Request lingua_excluir
     {
+        "TOKEN": "ASDDF1234JKDFL=",
         "LINGUA_ID": "23",
         "Idioma": "pt",
     }

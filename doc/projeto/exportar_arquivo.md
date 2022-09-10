@@ -9,10 +9,12 @@ status    | code | message
 `success` |  0   | arquivos exportados com sucesso
 
 + Parameters 
+    + TOKEN: `ASDDF1234JKDFL=` (required, string) - Token.
     + PROJETO_ID: `20` (required, string) - Id do projeto.
 
 + Request exportar_arquivo
     {
+        "TOKEN": "ASDDF1234JKDFL=",
         "PROJETO_ID": "20",
     }
 

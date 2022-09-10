@@ -15,7 +15,7 @@ error_reporting(E_ERROR);
 $servername = "localhost";
 $username = "traducoes";
 $password = "root123";
-$dbname = "api_traducoes";
+$dbname = "traducoes";
 
 date_default_timezone_set("America/Fortaleza");
 

@@ -1,6 +1,6 @@
 ## sync_idiomas [/sync/sync_idiomas.php]
 
-## sync_idiomas [GET]
+## sync_idiomas [POST]
 
 Retorna todos os idiomas cadastrados no projeto.
 
@@ -9,11 +9,13 @@ status    | code | message
 `success` |  0   | success
 
 + Parameters 
+    + TOKEN: `ASDDF1234JKDFL=` (required, string) - Token.
     + PROJETO_ID: `20`(required, string) - Id do projeto.
     + Idioma: `pt`(required, string) - Idioma.
 
 + Request sync_idiomas
     {
+        "TOKEN": "ASDDF1234JKDFL=",
         "PROJETO_ID": "20",
         "Idioma": "pt",
     }

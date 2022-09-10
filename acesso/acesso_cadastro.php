@@ -34,8 +34,8 @@ $result = $stmt->get_result();
 if ($result->num_rows > 0) {
 	$myObj = new stdClass();
 	$myObj->status = "fail";
-	$myObj->code = 1;
-	$myObj->message = "Email utilizado em outro cadastro.";
+	$myObj->code = -1;
+	$myObj->message = "email já cadastrado";
 	$myJSON = json_encode($myObj);
 	http_response_code(200);
 	$stmt->close();
@@ -58,8 +58,8 @@ $stmt = $conn->prepare('
 	USUARIO_EMAIL,
 	USUARIO_NOME,
 	USUARIO_SENHA,
-	USUARIO_CRIADO,
-	USUARIO_ATUALIZADO
+	USUARIO_CRIACAO,
+	USUARIO_ATUALIZACAO
 	) VALUES (?,?,?,?,?)
 ');
 
@@ -69,8 +69,8 @@ $stmt->execute();
 if ($stmt->affected_rows !== 1) {
 	$myObj = new stdClass();
 	$myObj->status = "fail";
-	$myObj->code = -1;
-	$myObj->message = "Cadastro falhou.";
+	$myObj->code = -2;
+	$myObj->message = "cadastro falhou";
 	$myJSON = json_encode($myObj);
 	http_response_code(200);
 	$stmt->close();
@@ -100,9 +100,7 @@ $stmt->execute();
 $myObj = new stdClass();
 $myObj->status = "success";
 $myObj->code = 0;
-$myObj->message = "Cadastro concluído.";
-$myObj->ID_USUARIO = $id_usuario;
-// $myObj->email = json_decode($result);
+$myObj->message = "cadastro concluído";
 $myJSON = json_encode($myObj);
 http_response_code(200);
 $stmt->close();

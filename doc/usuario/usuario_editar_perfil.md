@@ -10,6 +10,7 @@ status    | code | message
 `success` |  0   | perfil salvo com sucesso
 
 + Parameters
+    + TOKEN: `ASDDF1234JKDFL=` (required, string) - Token.
     + USUARIO_ID: `123` (required, string) - ID.
     + USUARIO_EMAIL: `outroemail@email.com` (optional, string) - EMAIL.
     + USUARIO_NOME: `Jobs Silva` (optional, string) - NOME.
@@ -18,6 +19,7 @@ status    | code | message
 
 + Request usuario_editar_perfil
     {
+        "TOKEN": "ASDDF1234JKDFL=",
         "USUARIO_ID": "123",
         "USUARIO_EMAIL": "outroemail@email.com",
         "USUARIO_NOME": "Jobs Silva",

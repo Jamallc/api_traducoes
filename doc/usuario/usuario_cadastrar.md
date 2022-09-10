@@ -11,12 +11,14 @@ status    | code | message
 `success` |  1   | usuário adicionado
 
 + Parameters
+    + TOKEN: `ASDDF1234JKDFL=` (required, string) - Token.
     + USUARIO_EMAIL: `teste@email.com` (required, string) - Email.
     + NIVEL_PERMISSOES: `2` (required, string) - Nível de permissão (1: Master, 2: Editor, 3: Leitor).
     + Idioma: `pt`(required, string) - Idioma.
 
 + Request usuario_cadastrar
     {
+        "TOKEN": "ASDDF1234JKDFL=",
         "USUARIO_EMAIL": "teste@email.com",
         "NIVEL_PERMISSOES": "2",
         "Idioma": "pt",

@@ -6,9 +6,8 @@ Gerador de token e validação de acesso.
 
 status    | code | message
 ---       | ---  | ---
-`fail`    | -3   | email ou senha inválidos
 `fail`    | -2   | email não ativado
-`fail`    | -1   | email não cadastrado
+`fail`    | -1   | email ou senha inválidos
 `success` |  0   | login concluído
 
 + Parameters
@@ -29,7 +28,7 @@ status    | code | message
         "code": 0,
         "message": "login concluído",
         "user": {
-            "token": "qi91wu82ey37rt46",
+            "TOKEN": "qi91wu82ey37rt46",
             "ID_USUARIO": 1,
             "USUARIO_NOME": "Steve Jobs",
             "USUARIO_EMAIL": "teste@email.com",

@@ -39,8 +39,8 @@ $result = $stmt->get_result();
 if ($result->num_rows === 0) {
 	$myObj = new stdClass();
 	$myObj->status = 'fail';
-	$myObj->code = 1;
-	$myObj->message = 'Email ou senha inválidos.';
+	$myObj->code = -1;
+	$myObj->message = 'email ou senha inválidos';
 	$myJSON = json_encode($myObj);
 	http_response_code(200);
 	$stmt->close();
@@ -49,16 +49,39 @@ if ($result->num_rows === 0) {
 	$row = $result->fetch_assoc();
 
 	$myObj = new stdClass();
-	if ($hash !== $row['USUARIO_SENHA'] && $hash !== $hash2) {
+	if ($hash !== $row['USUARIO_SENHA']) {
 		$myObj->status = 'fail';
-		$myObj->code = 1;
-		$myObj->message = 'Email ou senha inválidos.';
+		$myObj->code = -1;
+		$myObj->message = 'email ou senha inválidos';
+		$myJSON = json_encode($myObj);
+		http_response_code(200);
+		$stmt->close();
+		die($myJSON);
+	} else if ($hash === $row['USUARIO_SENHA']) {
+		$token = create_token($row['USUARIO_ID'], $SECRET);
+
+		$stmt = $conn->prepare('
+		UPDATE traducoes_usuario 
+		SET USUARIO_TOKEN = "' . $token . '"
+		WHERE USUARIO_ID = ?
+		');
+		$stmt->bind_param('i', $row['USUARIO_ID']);
+		$stmt->execute();
+
+		$user = [
+			"TOKEN" => $token,
+			"USUARIO_ID" => $row["USUARIO_ID"],
+			"USUARIO_NOME" => $row["USUARIO_NOME"],
+			"USUARIO_EMAIL" => $row["USUARIO_EMAIL"]
+		];
+
+		$myObj->status = 'success';
+		$myObj->code = 0;
+		$myObj->message = 'login concluído';
+		$myObj->user = $user;
 		$myJSON = json_encode($myObj);
 		http_response_code(200);
 		$stmt->close();
 		die($myJSON);
 	}
-
-	$jwt = create_token($row['USUARIO_ID'], $SECRET);
-	print_r($jwt);
 }

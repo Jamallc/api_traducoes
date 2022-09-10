@@ -6,6 +6,7 @@ Cadastra um novo usuário.
 
 status    | code | message
 ---       | ---  | ---
+`fail`    | -2   | cadastro falhou
 `fail`    | -1   | email já cadastrado
 `success` |  0   | cadastro concluído
 

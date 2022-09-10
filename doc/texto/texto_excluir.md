@@ -9,11 +9,13 @@ status    | code | message
 `success` |  0   | texto excluído com sucesso
 
 + Parameters 
+    + TOKEN: `ASDDF1234JKDFL=` (required, string) - Token.
     + TEXTO_ID: `15` (optional, string) - Id da frase.
     + Idioma: `pt`(required, string) - Idioma.
 
 + Request texto_excluir
     {
+        "TOKEN": "ASDDF1234JKDFL=",
         "TEXTO_ID": "15",
         "Idioma": "pt",
     }

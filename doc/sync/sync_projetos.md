@@ -1,6 +1,6 @@
 ## sync_projetos [/sync/sync_projetos.php]
 
-## sync_projetos [GET]
+## sync_projetos [POST]
 
 Retorna todos os projetos cadastrados.
 
@@ -9,10 +9,12 @@ status    | code | message
 `success` |  0   | success
 
 + Parameters 
+    + TOKEN: `ASDDF1234JKDFL=` (required, string) - Token.
     + Idioma: `pt`(required, string) - Idioma.
 
 + Request sync_projetos
     {
+        "TOKEN": "ASDDF1234JKDFL=",
         "Idioma": "pt",
     }
 

@@ -9,11 +9,13 @@ status    | code | message
 `success` |  0   | projeto excluído com sucesso
 
 + Parameters 
+    + TOKEN: `ASDDF1234JKDFL=` (required, string) - Token.
     + PROJETO_ID: `20` (required, string) - ID.
     + Idioma: `pt`(required, string) - Idioma.
 
 + Request projeto_excluir
     {
+        "TOKEN": "ASDDF1234JKDFL=",
         "PROJETO_ID": "20",
         "Idioma": "pt",
     }

@@ -9,12 +9,14 @@ status    | code | message
 `success` |  0   | projeto cadastrado com sucesso
 
 + Parameters 
+    + TOKEN: `ASDDF1234JKDFL=` (required, string) - Token.
     + PROJETO_NOME: `Projeto delivery` (required, string) - Email.
     + PROJETO_DESCRICAO: `Essa é a descrição do projeto delivery` (optional, string) - Email.
     + Idioma: `pt`(required, string) - Idioma.
 
 + Request projeto_cadastrar
     {
+        "TOKEN": "ASDDF1234JKDFL=",
         "PROJETO_NOME": "Projeto delivery",
         "PROJETO_DESCRICAO": "Essa é a descrição do projeto delivery",
         "Idioma": "pt",

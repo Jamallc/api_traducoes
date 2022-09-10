@@ -9,6 +9,7 @@ status    | code | message
 `success` |  0   | língua salva com sucesso
 
 + Parameters 
+    + TOKEN: `ASDDF1234JKDFL=` (required, string) - Token.
     + LINGUA_ID: `23` (required, string) - Id.
     + LINGUA_NOME: `Português` (optional, string) - Nome.
     + LINGUA_SIGLA: `PT` (optional, string) - Sigla.
@@ -16,6 +17,7 @@ status    | code | message
 
 + Request lingua_editar
     {
+        "TOKEN": "ASDDF1234JKDFL=",
         "LINGUA_ID": "23",
         "LINGUA_NOME": "Português",
         "LINGUA_SIGLA": "PT",

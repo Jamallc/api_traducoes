@@ -1,6 +1,6 @@
 ## sync_perfil [/sync/sync_perfil.php]
 
-## sync_perfil [GET]
+## sync_perfil [POST]
 
 Retorna todos os editores cadastrados no projeto.
 
@@ -9,11 +9,13 @@ status    | code | message
 `success` |  0   | success
 
 + Parameters 
+    + TOKEN: `ASDDF1234JKDFL=` (required, string) - Token.
     + USUARIO_ID: `20`(required, string) - Id do projeto.
     + Idioma: `pt`(required, string) - Idioma.
 
 + Request sync_perfil
     {
+        "TOKEN": "ASDDF1234JKDFL=",
         "USUARIO_ID": "20",
         "Idioma": "pt",
     }

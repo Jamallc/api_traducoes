@@ -1,16 +1,34 @@
 <?php
 
-$dir = dirname(__DIR__);
+$servername = "localhost";
+$username = "traducoes";
+$password = "root123";
+$dbname = "traducoes";
 
-require_once $dir . "/geral/credentials.php";
-require_once $dir . "/geral/authenticate.php";
 
-$secret = "3vgMw8e%#gJae5@b^YD5";
+$conn = mysqli_connect($servername, $username, $password, $dbname, "3306");
+$conn->query("SET NAMES 'utf8'");
+$conn->query("SET character_set_connection=utf8");
+$conn->query("SET character_set_client=utf8");
+$conn->query("SET character_set_results=utf8");
 
-$key = "senha";
+if ($conn->connect_error) {
+  $myObj = new stdClass();
+  $myObj->message = http_response_message(500);
+  $myJSON = json_encode($myObj);
+  $conn->close();
+  die($myJSON);
+}
 
-$data = array(
-	'senha' => '123',
-);
+$stmt = $conn->prepare('
+	SELECT *
+	FROM traducoes_usuario
+');
+$stmt->execute();
+$result = $stmt->get_result();
+$result = $result->fetch_assoc();
 
-$frase = encodeJWT($data, $key);
+echo '<pre>';
+print_r($result);
+echo '</pre>';
+

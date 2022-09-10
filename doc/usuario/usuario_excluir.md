@@ -9,11 +9,13 @@ status    | code | message
 `success` |  0   | usuário desvinculado com sucesso
 
 + Parameters
+    + TOKEN: `ASDDF1234JKDFL=` (required, string) - Token.
     + USUARIO_ID: `123` (required, string) - ID.
     + Idioma: `pt`(required, string) - Idioma.
 
 + Request usuario_excluir
     {
+        "TOKEN": "ASDDF1234JKDFL=",
         "USUARIO_ID": "123",
         "Idioma": "pt",
     }

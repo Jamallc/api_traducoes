@@ -9,6 +9,7 @@ status    | code | message
 `success` |  0   | projeto salvo com sucesso
 
 + Parameters 
+    + TOKEN: `ASDDF1234JKDFL=` (required, string) - Token.
     + PROJETO_ID: `20` (required, string) - ID.
     + PROJETO_NOME: `Projeto delivery` (optional, string) - Email.
     + PROJETO_DESCRICAO: `Essa é a descrição do projeto delivery` (optional, string) - Email.
@@ -16,6 +17,7 @@ status    | code | message
 
 + Request projeto_editar
     {
+        "TOKEN": "ASDDF1234JKDFL=",
         "PROJETO_ID": "20",
         "PROJETO_NOME": "Projeto delivery",
         "PROJETO_DESCRICAO": "Essa é a descrição do projeto delivery",

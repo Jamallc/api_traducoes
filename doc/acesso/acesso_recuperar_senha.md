@@ -10,11 +10,13 @@ status    | code | message
 `success` |  0   | link de recuperação enviado ao email
 
 + Parameters
+    + TOKEN: `ASDDF1234JKDFL=` (required, string) - Token.
     + USUARIO_EMAIL: `teste@email.com` (required, string) - Email.
     + Idioma: `pt`(required, string) - Idioma.
 
 + Request acesso_recuperar_senha
     {
+        "TOKEN": "ASDDF1234JKDFL=",
         "USUARIO_EMAIL": "teste@email.com",
         "Idioma": "pt",
     }
