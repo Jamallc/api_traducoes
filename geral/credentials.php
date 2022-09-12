@@ -12,6 +12,8 @@ error_reporting(E_ALL);
 error_reporting(E_ERROR);
 error_reporting(E_ERROR);
 
+$host_name = "http://localhost:8001/";
+
 $servername = "localhost";
 $username = "traducoes";
 $password = "root123";

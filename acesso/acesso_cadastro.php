@@ -88,15 +88,6 @@ $stmt = $conn->prepare('
 $stmt->bind_param('i', $id_usuario);
 $stmt->execute();
 
-
-// $data = array('USUARIO_EMAIL' => $dados["USUARIO_EMAIL"], 'txIdioma' => $dados["txIdioma"], 'txEmailTipo' => 'desbloqueio');
-// $ch = curl_init($host . "/acesso/acesso_emails.php");
-// curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($data));
-// curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type:application/json'));
-// curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-// $result = curl_exec($ch);
-// curl_close($ch);
-
 $myObj = new stdClass();
 $myObj->status = "success";
 $myObj->code = 0;

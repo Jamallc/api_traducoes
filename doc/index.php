@@ -164,13 +164,14 @@
 </dd><dt>USUARIO_NOME</dt><dd><code>string</code>&nbsp;<span class="required">(required)</span>&nbsp;<span class="text-muted example"><strong>Example:&nbsp;</strong><span>12345678</span></span><p>Nome do usuário.</p>
 </dd><dt>Idioma</dt><dd><code>string</code>&nbsp;<span class="required">(required)</span>&nbsp;<span class="text-muted example"><strong>Example:&nbsp;</strong><span>pt</span></span><p>Idioma.</p>
 </dd></dl></div></div></div><hr class="split"><div class="middle"><div id="acesso-acesso_recuperar_senha" class="resource"><h3 class="resource-heading">acesso_recuperar_senha <a href="#acesso-acesso_recuperar_senha" class="permalink">&para;</a></h3></div></div><div class="right"><div class="definition"><span class="method post">POST</span>&nbsp;<span class="uri"><span class="hostname">http://localhost:8001/api_traducoes/</span>/acesso/acesso_recuperar_senha.php</span></div><div class="tabs"><div class="example-names"><span>Requests</span><span class="tab-button">acesso_recuperar_senha</span></div><div class="tab"><div><div class="inner"><h5>Body</h5><pre><code>{
-    "<span class="hljs-attribute">TOKEN</span>": <span class="hljs-value"><span class="hljs-string">"ASDDF1234JKDFL="</span></span>,
     "<span class="hljs-attribute">USUARIO_EMAIL</span>": <span class="hljs-value"><span class="hljs-string">"teste@email.com"</span></span>,
+    "<span class="hljs-attribute">USUARIO_SENHA</span>": <span class="hljs-value"><span class="hljs-string">"senha123"</span></span>,
+    "<span class="hljs-attribute">TOKEN</span>": <span class="hljs-value"><span class="hljs-string">"ASDDF1234JKDFL="</span></span>,
     "<span class="hljs-attribute">Idioma</span>": <span class="hljs-value"><span class="hljs-string">"pt"</span></span>,
 }</code></pre><div style="height: 1px;"></div></div></div><div class="tabs"><div class="example-names"><span>Responses</span><span class="tab-button">200</span><span class="tab-button">400</span><span class="tab-button">401</span><span class="tab-button">404</span></div><div class="tab"><div><div class="inner"><h5>Body</h5><pre><code>{
     "<span class="hljs-attribute">status</span>": <span class="hljs-value"><span class="hljs-string">"success"</span></span>,
     "<span class="hljs-attribute">code</span>": <span class="hljs-value"><span class="hljs-number">0</span></span>,
-    "<span class="hljs-attribute">message</span>": <span class="hljs-value"><span class="hljs-string">"link de recuperação enviado ao email"</span></span>,
+    "<span class="hljs-attribute">message</span>": <span class="hljs-value"><span class="hljs-string">"se o email estiver cadastrado, foi enviado um link de recuperação"</span></span>,
 }</code></pre><div style="height: 1px;"></div></div></div></div><div class="tab"><div><div class="inner"><h5>Body</h5><pre><code>{
   "<span class="hljs-attribute">code</span>": <span class="hljs-value"><span class="hljs-number">400</span></span>,
   "<span class="hljs-attribute">message</span>": <span class="hljs-value"><span class="hljs-string">"Bad request"</span>
@@ -180,7 +181,7 @@
 </span>}</code></pre><div style="height: 1px;"></div></div></div></div><div class="tab"><div><div class="inner"><h5>Body</h5><pre><code>{
   "<span class="hljs-attribute">code</span>": <span class="hljs-value"><span class="hljs-number">404</span></span>,
   "<span class="hljs-attribute">message</span>": <span class="hljs-value"><span class="hljs-string">"Not found"</span>
-</span>}</code></pre><div style="height: 1px;"></div></div></div></div></div></div></div></div><div class="middle"><div id="acesso-acesso_recuperar_senha-post" class="action post"><h4 class="action-heading"><div class="name">acesso_recuperar_senha</div><a href="#acesso-acesso_recuperar_senha-post" class="method post">POST</a><code class="uri">/acesso/acesso_recuperar_senha.php</code></h4><p>Envia para o email da pessoa uma recuperação de senha.</p>
+</span>}</code></pre><div style="height: 1px;"></div></div></div></div></div></div></div></div><div class="middle"><div id="acesso-acesso_recuperar_senha-post" class="action post"><h4 class="action-heading"><div class="name">acesso_recuperar_senha</div><a href="#acesso-acesso_recuperar_senha-post" class="method post">POST</a><code class="uri">/acesso/acesso_recuperar_senha.php</code></h4><p>Envia para o email da pessoa uma recuperação de senha. O envio do token para o endpoint, acontece junto com a senha. Assim que a pessoa clica no link, ele abrirá um local de recuperação e o TOKEN irá como parâmetro na URL, esse token deve ser passado como parâmetro junto com a nova senha, para o endPoint.</p>
 <table>
 <thead>
 <tr>
@@ -191,19 +192,15 @@
 </thead>
 <tbody>
 <tr>
-<td><code>fail</code></td>
-<td>-1</td>
-<td>email não existe</td>
-</tr>
-<tr>
 <td><code>success</code></td>
 <td>0</td>
-<td>link de recuperação enviado ao email</td>
+<td>se o email estiver cadastrado, foi enviado um link de recuperação</td>
 </tr>
 </tbody>
 </table>
-<div class="title"><strong>URI Parameters</strong><div class="collapse-button show"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><dl class="inner"><dt>TOKEN</dt><dd><code>string</code>&nbsp;<span class="required">(required)</span>&nbsp;<span class="text-muted example"><strong>Example:&nbsp;</strong><span>ASDDF1234JKDFL=</span></span><p>Token.</p>
-</dd><dt>USUARIO_EMAIL</dt><dd><code>string</code>&nbsp;<span class="required">(required)</span>&nbsp;<span class="text-muted example"><strong>Example:&nbsp;</strong><span>teste@email.com</span></span><p>Email.</p>
+<div class="title"><strong>URI Parameters</strong><div class="collapse-button show"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><dl class="inner"><dt>USUARIO_EMAIL</dt><dd><code>string</code>&nbsp;<span class="required">(required)</span>&nbsp;<span class="text-muted example"><strong>Example:&nbsp;</strong><span>teste@email.com</span></span><p>Email.</p>
+</dd><dt>USUARIO_SENHA</dt><dd><code>string</code>&nbsp;<span>(optional)</span>&nbsp;<span class="text-muted example"><strong>Example:&nbsp;</strong><span>senha123</span></span><p>Nova senha, caso ele clique no link do email.</p>
+</dd><dt>TOKEN</dt><dd><code>string</code>&nbsp;<span>(optional)</span>&nbsp;<span class="text-muted example"><strong>Example:&nbsp;</strong><span>ASDDF1234JKDFL=</span></span><p>Token, caso ele clique no link do email, este virá com um token.</p>
 </dd><dt>Idioma</dt><dd><code>string</code>&nbsp;<span class="required">(required)</span>&nbsp;<span class="text-muted example"><strong>Example:&nbsp;</strong><span>pt</span></span><p>Idioma.</p>
 </dd></dl></div></div></div><hr class="split"><div class="middle"><section id="usuário" class="resource-group"><h2 class="group-heading">Usuário <a href="#usuário" class="permalink">&para;</a></h2></section></div><div class="middle"><div id="usuário-usuario_cadastrar" class="resource"><h3 class="resource-heading">usuario_cadastrar <a href="#usuário-usuario_cadastrar" class="permalink">&para;</a></h3></div></div><div class="right"><div class="definition"><span class="method post">POST</span>&nbsp;<span class="uri"><span class="hostname">http://localhost:8001/api_traducoes/</span>/usuarios/usuario_cadastrar.php</span></div><div class="tabs"><div class="example-names"><span>Requests</span><span class="tab-button">usuario_cadastrar</span></div><div class="tab"><div><div class="inner"><h5>Body</h5><pre><code>{
     "<span class="hljs-attribute">TOKEN</span>": <span class="hljs-value"><span class="hljs-string">"ASDDF1234JKDFL="</span></span>,
@@ -1054,7 +1051,7 @@ arquivo <span class="hljs-number">2</span>: txt.interface.ts =&gt;
 <div class="title"><strong>URI Parameters</strong><div class="collapse-button show"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><dl class="inner"><dt>TOKEN</dt><dd><code>string</code>&nbsp;<span class="required">(required)</span>&nbsp;<span class="text-muted example"><strong>Example:&nbsp;</strong><span>ASDDF1234JKDFL=</span></span><p>Token.</p>
 </dd><dt>USUARIO_ID</dt><dd><code>string</code>&nbsp;<span class="required">(required)</span>&nbsp;<span class="text-muted example"><strong>Example:&nbsp;</strong><span>20</span></span><p>Id do projeto.</p>
 </dd><dt>Idioma</dt><dd><code>string</code>&nbsp;<span class="required">(required)</span>&nbsp;<span class="text-muted example"><strong>Example:&nbsp;</strong><span>pt</span></span><p>Idioma.</p>
-</dd></dl></div></div></div><hr class="split"><div class="middle"><p style="text-align: center;" class="text-muted">Generated by&nbsp;<a href="https://github.com/danielgtaylor/aglio" class="aglio">aglio</a>&nbsp;on 09 Sep 2022</p></div></div></div></div><script>/* eslint-env browser */
+</dd></dl></div></div></div><hr class="split"><div class="middle"><p style="text-align: center;" class="text-muted">Generated by&nbsp;<a href="https://github.com/danielgtaylor/aglio" class="aglio">aglio</a>&nbsp;on 12 Sep 2022</p></div></div></div></div><script>/* eslint-env browser */
 /* eslint quotes: [2, "single"] */
 'use strict';
 

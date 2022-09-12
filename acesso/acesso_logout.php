@@ -18,9 +18,7 @@ if (
 }
 
 $token = validate_token($dados["TOKEN"]);
-echo '<pre>';
-print_r($token);
-echo '</pre>';
+
 $stmt = $conn->prepare('
 UPDATE traducoes_usuario 
 SET USUARIO_TOKEN = "0"
