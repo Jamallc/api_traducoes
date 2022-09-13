@@ -196,6 +196,11 @@
 <td>0</td>
 <td>se o email estiver cadastrado, foi enviado um link de recuperação</td>
 </tr>
+<tr>
+<td><code>success</code></td>
+<td>1</td>
+<td>senha atualizada com sucesso</td>
+</tr>
 </tbody>
 </table>
 <div class="title"><strong>URI Parameters</strong><div class="collapse-button show"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><dl class="inner"><dt>USUARIO_EMAIL</dt><dd><code>string</code>&nbsp;<span class="required">(required)</span>&nbsp;<span class="text-muted example"><strong>Example:&nbsp;</strong><span>teste@email.com</span></span><p>Email.</p>
@@ -204,7 +209,9 @@
 </dd><dt>Idioma</dt><dd><code>string</code>&nbsp;<span class="required">(required)</span>&nbsp;<span class="text-muted example"><strong>Example:&nbsp;</strong><span>pt</span></span><p>Idioma.</p>
 </dd></dl></div></div></div><hr class="split"><div class="middle"><section id="usuário" class="resource-group"><h2 class="group-heading">Usuário <a href="#usuário" class="permalink">&para;</a></h2></section></div><div class="middle"><div id="usuário-usuario_cadastrar" class="resource"><h3 class="resource-heading">usuario_cadastrar <a href="#usuário-usuario_cadastrar" class="permalink">&para;</a></h3></div></div><div class="right"><div class="definition"><span class="method post">POST</span>&nbsp;<span class="uri"><span class="hostname">http://localhost:8001/api_traducoes/</span>/usuarios/usuario_cadastrar.php</span></div><div class="tabs"><div class="example-names"><span>Requests</span><span class="tab-button">usuario_cadastrar</span></div><div class="tab"><div><div class="inner"><h5>Body</h5><pre><code>{
     "<span class="hljs-attribute">TOKEN</span>": <span class="hljs-value"><span class="hljs-string">"ASDDF1234JKDFL="</span></span>,
+    "<span class="hljs-attribute">USUARIO_NOME</span>": <span class="hljs-value"><span class="hljs-string">"Teste Dois"</span></span>,
     "<span class="hljs-attribute">USUARIO_EMAIL</span>": <span class="hljs-value"><span class="hljs-string">"teste@email.com"</span></span>,
+    "<span class="hljs-attribute">PROJETO_ID</span>": <span class="hljs-value"><span class="hljs-string">"23"</span></span>,
     "<span class="hljs-attribute">NIVEL_PERMISSOES</span>": <span class="hljs-value"><span class="hljs-string">"2"</span></span>,
     "<span class="hljs-attribute">Idioma</span>": <span class="hljs-value"><span class="hljs-string">"pt"</span></span>,
 }</code></pre><div style="height: 1px;"></div></div></div><div class="tabs"><div class="example-names"><span>Responses</span><span class="tab-button">200</span><span class="tab-button">400</span><span class="tab-button">401</span><span class="tab-button">404</span></div><div class="tab"><div><div class="inner"><h5>Body</h5><pre><code>{
@@ -248,7 +255,9 @@
 </tbody>
 </table>
 <div class="title"><strong>URI Parameters</strong><div class="collapse-button show"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><dl class="inner"><dt>TOKEN</dt><dd><code>string</code>&nbsp;<span class="required">(required)</span>&nbsp;<span class="text-muted example"><strong>Example:&nbsp;</strong><span>ASDDF1234JKDFL=</span></span><p>Token.</p>
+</dd><dt>USUARIO_NOME</dt><dd><code>string</code>&nbsp;<span class="required">(required)</span>&nbsp;<span class="text-muted example"><strong>Example:&nbsp;</strong><span>Teste Dois</span></span><p>Nome.</p>
 </dd><dt>USUARIO_EMAIL</dt><dd><code>string</code>&nbsp;<span class="required">(required)</span>&nbsp;<span class="text-muted example"><strong>Example:&nbsp;</strong><span>teste@email.com</span></span><p>Email.</p>
+</dd><dt>PROJETO_ID</dt><dd><code>string</code>&nbsp;<span class="required">(required)</span>&nbsp;<span class="text-muted example"><strong>Example:&nbsp;</strong><span>23</span></span><p>ID do projeto.</p>
 </dd><dt>NIVEL_PERMISSOES</dt><dd><code>string</code>&nbsp;<span class="required">(required)</span>&nbsp;<span class="text-muted example"><strong>Example:&nbsp;</strong><span>2</span></span><p>Nível de permissão (1: Master, 2: Editor, 3: Leitor).</p>
 </dd><dt>Idioma</dt><dd><code>string</code>&nbsp;<span class="required">(required)</span>&nbsp;<span class="text-muted example"><strong>Example:&nbsp;</strong><span>pt</span></span><p>Idioma.</p>
 </dd></dl></div></div></div><hr class="split"><div class="middle"><div id="usuário-usuario_editar_perfil" class="resource"><h3 class="resource-heading">usuario_editar_perfil <a href="#usuário-usuario_editar_perfil" class="permalink">&para;</a></h3></div></div><div class="right"><div class="definition"><span class="method put">PUT</span>&nbsp;<span class="uri"><span class="hostname">http://localhost:8001/api_traducoes/</span>/usuarios/usuario_editar_perfil.php</span></div><div class="tabs"><div class="example-names"><span>Requests</span><span class="tab-button">usuario_editar_perfil</span></div><div class="tab"><div><div class="inner"><h5>Body</h5><pre><code>{
@@ -1051,7 +1060,7 @@ arquivo <span class="hljs-number">2</span>: txt.interface.ts =&gt;
 <div class="title"><strong>URI Parameters</strong><div class="collapse-button show"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><dl class="inner"><dt>TOKEN</dt><dd><code>string</code>&nbsp;<span class="required">(required)</span>&nbsp;<span class="text-muted example"><strong>Example:&nbsp;</strong><span>ASDDF1234JKDFL=</span></span><p>Token.</p>
 </dd><dt>USUARIO_ID</dt><dd><code>string</code>&nbsp;<span class="required">(required)</span>&nbsp;<span class="text-muted example"><strong>Example:&nbsp;</strong><span>20</span></span><p>Id do projeto.</p>
 </dd><dt>Idioma</dt><dd><code>string</code>&nbsp;<span class="required">(required)</span>&nbsp;<span class="text-muted example"><strong>Example:&nbsp;</strong><span>pt</span></span><p>Idioma.</p>
-</dd></dl></div></div></div><hr class="split"><div class="middle"><p style="text-align: center;" class="text-muted">Generated by&nbsp;<a href="https://github.com/danielgtaylor/aglio" class="aglio">aglio</a>&nbsp;on 12 Sep 2022</p></div></div></div></div><script>/* eslint-env browser */
+</dd></dl></div></div></div><hr class="split"><div class="middle"><p style="text-align: center;" class="text-muted">Generated by&nbsp;<a href="https://github.com/danielgtaylor/aglio" class="aglio">aglio</a>&nbsp;on 13 Sep 2022</p></div></div></div></div><script>/* eslint-env browser */
 /* eslint quotes: [2, "single"] */
 'use strict';
 
