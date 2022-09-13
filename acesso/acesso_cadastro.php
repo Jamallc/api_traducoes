@@ -25,7 +25,7 @@ $stmt = $conn->prepare('
 	USUARIO_ID
 	FROM traducoes_usuario
 	WHERE
-	USUARIO_EMAIL = ? AND USUARIO_EXCLUIDO <> 1
+	USUARIO_EMAIL = ? AND USUARIO_EXCLUIDO IS NULL OR USUARIO_EXCLUIDO = 0
 ');
 $stmt->bind_param('s', $dados["USUARIO_EMAIL"]);
 $stmt->execute();

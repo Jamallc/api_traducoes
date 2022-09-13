@@ -31,7 +31,7 @@ $stmt = $conn->prepare('
 	SELECT *
 	FROM traducoes_usuario
 	WHERE
-	USUARIO_EMAIL = ?');
+	USUARIO_EMAIL = ? AND USUARIO_EXCLUIDO IS NULL OR USUARIO_EXCLUIDO = 0');
 $stmt->bind_param('s', $dados["USUARIO_EMAIL"]);
 $stmt->execute();
 $result = $stmt->get_result();
