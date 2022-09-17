@@ -39,6 +39,23 @@ $SECRET = '3vgMw8e%#gJae5@b^YD5';
 
 $token_password = "dsfbreyjERGsrj4thafdbdtyktyjEAfbwerthjERj";
 
+function tratar_nome ($nome) {
+  $nome = strtolower($nome); // Converter o nome todo para minúsculo
+  $nome = explode(" ", $nome); // Separa o nome por espaços
+  $saida = '';
+  for ($i=0; $i < count($nome); $i++) {
+
+      // Tratar cada palavra do nome
+      if ($nome[$i] == "de" or $nome[$i] == "da" or $nome[$i] == "e" or $nome[$i] == "dos" or $nome[$i] == "do") {
+          $saida .= $nome[$i].' '; // Se a palavra estiver dentro das complementares mostrar toda em minúsculo
+      }else {
+          $saida .= ucfirst($nome[$i]).' '; // Se for um nome, mostrar a primeira letra maiúscula
+      }
+
+  }
+  return $saida;
+}
+
 function dateTimeNow()
 {
   $datetime = new DateTime(null, new DateTimeZone("America/Fortaleza"));

@@ -6,7 +6,8 @@ Edita o perfil do usuário.
 
 status    | code | message
 ---       | ---  | ---
-`fail`    | -1   | email já cadastrado por outro usuário
+`fail`    | -2   | senha não confere
+`fail`    | -1   | email já cadastrado
 `success` |  0   | perfil salvo com sucesso
 
 + Parameters
@@ -15,6 +16,7 @@ status    | code | message
     + USUARIO_EMAIL: `outroemail@email.com` (optional, string) - EMAIL.
     + USUARIO_NOME: `Jobs Silva` (optional, string) - NOME.
     + USUARIO_SENHA: `1234asdqwe` (optional, string) - SENHA.
+    + USUARIO_SENHA_ANTERIOR: `1234asdqwe` (optional, string) - SENHA ANTERIOR.
     + Idioma: `pt`(required, string) - Idioma.
 
 + Request usuario_editar_perfil

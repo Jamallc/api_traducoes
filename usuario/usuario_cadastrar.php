@@ -16,7 +16,7 @@ $dados = json_decode($dados, true);
 
 if (
 	!array_key_exists("TOKEN", $dados) || ($dados["TOKEN"] === '') ||
-	!array_key_exists("USUARIO_EMAIL", $dados) || ($dados["USUARIO_EMAIL"] === '') ||
+	!array_key_exists("USUARIO_EMAIL", $dados) || ($email === '') ||
 	!array_key_exists("NIVEL_PERMISSOES", $dados) || ($dados["NIVEL_PERMISSOES"] === '') ||
 	!array_key_exists("PROJETO_ID", $dados) || ($dados["PROJETO_ID"] === '') ||
 	!array_key_exists("Idioma", $dados) || ($dados["Idioma"] === '')
@@ -26,6 +26,9 @@ if (
 	$myJSON = json_encode($myObj);
 	die($myJSON);
 }
+
+$email = strtolower(trim($dados["USUARIO_EMAIL"]));
+$nome = tratar_nome(strtolower(trim($dados["USUARIO_NOME"])));
 
 $stmt = $conn->prepare('
 	SELECT *
@@ -54,7 +57,7 @@ $stmt = $conn->prepare('
 	WHERE
 	USUARIO_EMAIL = ? AND USUARIO_EXCLUIDO IS NULL OR USUARIO_EXCLUIDO = 0
 ');
-$stmt->bind_param('s', $dados["USUARIO_EMAIL"]);
+$stmt->bind_param('s', $email);
 $stmt->execute();
 $result = $stmt->get_result();
 
@@ -81,7 +84,7 @@ if ($result->num_rows === 0) {
 	$hash = str_replace("\\", "", $hash);
 	$hash = str_replace("/", "", $hash);
 
-	$stmt->bind_param('sssss', $dados["USUARIO_EMAIL"], $dados["USUARIO_NOME"], $hash, $data_hora, $data_hora);
+	$stmt->bind_param('sssss', $email, $nome, $hash, $data_hora, $data_hora);
 	$stmt->execute();
 
 	$id_usuario = $stmt->insert_id;
@@ -129,7 +132,7 @@ if ($result->num_rows === 0) {
 
 			$mail->FromName = mb_convert_encoding($header, "UTF-8", "auto");
 			$mail->setFrom('app.traducao@gmail.com');
-			$mail->addAddress($dados["USUARIO_EMAIL"]);
+			$mail->addAddress($email);
 
 			$mail->isHTML(true);
 			$mail->Subject = 'Teste';
