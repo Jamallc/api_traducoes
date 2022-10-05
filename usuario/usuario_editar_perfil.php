@@ -23,7 +23,6 @@ if(!($token->data->id > 0)) {
 	$myObj = new stdClass();
 	$myObj->message = http_response_message(400);
 	$myJSON = json_encode($myObj);
-	echo 'aqui';
 	die($myJSON);
 }
 
