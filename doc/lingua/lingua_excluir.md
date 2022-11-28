@@ -6,7 +6,8 @@ Excluir uma língua.
 
 status    | code | message
 ---       | ---  | ---
-`success` |  0   | língua excluída com sucesso
+`success` |  0   | Língua excluída com sucesso
+`fail`    |  -1  | A língua não existe
 
 + Parameters 
     + TOKEN: `ASDDF1234JKDFL=` (required, string) - Token.

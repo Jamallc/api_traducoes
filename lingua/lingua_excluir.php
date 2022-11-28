@@ -10,7 +10,7 @@ $dados = json_decode($dados, true);
 
 if (
 	!array_key_exists("TOKEN", $dados) || ($dados["TOKEN"] === '') ||
-	!array_key_exists("PROJETO_ID", $dados) || ($dados["PROJETO_ID"] === '') ||
+	!array_key_exists("LINGUA_ID", $dados) || ($dados["LINGUA_ID"] === '') ||
 	!array_key_exists("Idioma", $dados) || ($dados["Idioma"] === '')
 ) {
 	$myObj = new stdClass();
@@ -22,27 +22,27 @@ if (
 $id_master = validate_token($dados["TOKEN"])->data->id;
 
 $stmt = $conn->prepare('
-	SELECT PROJETOS_NOME
-	FROM traducoes_projetos
+	SELECT LINGUAS_NOME
+	FROM traducoes_linguas
 	WHERE
-	PROJETOS_ID = ? AND PROJETOS_EXCLUIDO IS NULL OR PROJETOS_EXCLUIDO = 0
+	LINGUAS_ID = ? AND LINGUAS_EXCLUIDO IS NULL OR LINGUAS_EXCLUIDO = 0
 ');
-$stmt->bind_param('s', $dados["PROJETO_ID"]);
+$stmt->bind_param('s', $dados["LINGUA_ID"]);
 $stmt->execute();
 $result = $stmt->get_result();
 
 if ($result->num_rows > 0) {
 	$data_hora = strval(dateTimeNow());
-	$sql = 'UPDATE traducoes_projetos SET PROJETOS_EXCLUIDO = "1", PROJETOS_ATUALIZACAO = "'. $data_hora .'" WHERE PROJETOS_ID = ?';
-	
+	$sql = 'UPDATE traducoes_linguas SET LINGUAS_EXCLUIDO = "1", LINGUAS_ATUALIZACAO = "' . $data_hora . '" WHERE LINGUAS_ID = ?';
+
 	$edit = $conn->prepare($sql);
-	$edit->bind_param('i', $dados["PROJETO_ID"]);
+	$edit->bind_param('i', $dados["LINGUA_ID"]);
 	$result = $edit->execute();
 
 	$myObj = new stdClass();
 	$myObj->status = "success";
 	$myObj->code = 0;
-	$myObj->message = "projeto excluído com sucesso";
+	$myObj->message = "Língua excluído com sucesso";
 	$myJSON = json_encode($myObj);
 	http_response_code(200);
 	$edit->close();
@@ -51,7 +51,7 @@ if ($result->num_rows > 0) {
 	$myObj = new stdClass();
 	$myObj->status = "fail";
 	$myObj->code = -1;
-	$myObj->message = "O projeto não existe";
+	$myObj->message = "A lingua não existe";
 	$myJSON = json_encode($myObj);
 	http_response_code(200);
 	die($myJSON);

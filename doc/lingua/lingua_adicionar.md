@@ -7,6 +7,7 @@ Cadastra uma nova língua.
 status    | code | message
 ---       | ---  | ---
 `success` |  0   | língua adicionada com sucesso
+`fail`    |  -1  | A lingua e/ou sigla já esta(ão) cadastrada(s)
 
 + Parameters 
     + TOKEN: `ASDDF1234JKDFL=` (required, string) - Token.
