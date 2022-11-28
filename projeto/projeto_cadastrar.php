@@ -7,10 +7,10 @@ require_once $dir . "/geral/authenticate.php";
 
 $dados = file_get_contents("php://input");
 $dados = json_decode($dados, true);
-$dados = json_decode('{"PROJETO_NOME": "App Tradução", "Idioma": "PT"}', true);
+$dados = json_decode('{"PROJETO_NOME": "App Teste", "Idioma": "PT", "TOKEN": "ZXlKaGJHY2lPaUFpU0ZNeU5UWWlMQ0FpZEhsd0lqb2dJa3BYVkNKOS5leUpxZEdraU9pSXpNR1o0VFRWQk1XNWxVRWxIWlRoUFUwZG1ZbGQzUFQwaUxDSnBjM01pT2lKc2IyTmhiR2h2YzNRNk9EQXdNU0lzSW1saGRDSTZNVFkyT1RZMk5UTXhNU3dpWkdGMFlTSTZleUpwWkNJNk1uMTkucUN5cm5EV1czaDlhYnF0QUlqVUVibWo3cF9sT3FsZDdrU2Ezd0NPQWZIaw=="}', true);
 
 if (
-	// !array_key_exists("TOKEN", $dados) || ($dados["TOKEN"] === '') ||
+	!array_key_exists("TOKEN", $dados) || ($dados["TOKEN"] === '') ||
 	!array_key_exists("PROJETO_NOME", $dados) || ($dados["PROJETO_NOME"] === '') ||
 	!array_key_exists("Idioma", $dados) || ($dados["Idioma"] === '')
 ) {
@@ -19,6 +19,8 @@ if (
 	$myJSON = json_encode($myObj);
 	die($myJSON);
 }
+
+$id_master = validate_token($dados["TOKEN"])->data->id;
 
 $stmt = $conn->prepare('
 	SELECT PROJETOS_NOME
@@ -46,14 +48,23 @@ if ($result->num_rows > 0) {
 			PROJETOS_DESCRICAO,
 			PROJETOS_CRIACAO,
 			PROJETOS_ATUALIZACAO,
-		) VALUES (?,?,?,?)
+			PROJETO_USUARIO_ID
+		) VALUES (?,?,?,?,?)
 	');
 
 	$data_hora = strval(dateTimeNow());
 
-	$stmt->bind_param('ssss', $dados["PROJETO_NOME"], $dados["PROJETO_DESCRICAO"], $data_hora, $data_hora);
+	$descricao = $dados["PROJETO_DESCRICAO"] ? $dados["PROJETO_DESCRICAO"] : "";
+
+	$stmt->bind_param('sssss', $dados["PROJETO_NOME"], $descricao , $data_hora, $data_hora, $id_master);
 	$stmt->execute();
 
-	$id_usuario = $stmt->insert_id;
-	$token = create_token($id_usuario, $SECRET);
+	$myObj = new stdClass();
+	$myObj->status = "success";
+	$myObj->code = 0;
+	$myObj->message = "projeto cadastrado com sucesso";
+	$myJSON = json_encode($myObj);
+	http_response_code(200);
+	$stmt->close();
+	die($myJSON);
 }
