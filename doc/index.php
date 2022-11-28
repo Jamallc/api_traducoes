@@ -773,7 +773,12 @@ arquivo <span class="hljs-number">2</span>: txt.interface.ts =&gt;
 <tr>
 <td><code>success</code></td>
 <td>0</td>
-<td>texto excluído com sucesso</td>
+<td>Texto excluído com sucesso</td>
+</tr>
+<tr>
+<td><code>fail</code></td>
+<td>-1</td>
+<td>O texto não existe</td>
 </tr>
 </tbody>
 </table>

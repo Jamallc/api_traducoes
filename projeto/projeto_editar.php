@@ -56,7 +56,6 @@ if ($result->num_rows > 0) {
 	}
 
 	$sql = 'UPDATE traducoes_projetos SET ';
-	$array_param = [];
 	if ($dados["PROJETO_NOME"]) {
 		$sql .= 'PROJETOS_NOME = "' . $dados["PROJETO_NOME"] . '"';
 	}

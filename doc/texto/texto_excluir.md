@@ -6,7 +6,8 @@ Exclui um texto.
 
 status    | code | message
 ---       | ---  | ---
-`success` |  0   | texto excluído com sucesso
+`success` |  0   | Texto excluído com sucesso
+`fail`    |  -1  | O texto não existe
 
 + Parameters 
     + TOKEN: `ASDDF1234JKDFL=` (required, string) - Token.
