@@ -7,6 +7,7 @@ Cadastra um novo projeto.
 status    | code | message
 ---       | ---  | ---
 `success` |  0   | projeto cadastrado com sucesso
+`fail`    |  1   | O nome do projeto já está cadastrado
 
 + Parameters 
     + TOKEN: `ASDDF1234JKDFL=` (required, string) - Token.
