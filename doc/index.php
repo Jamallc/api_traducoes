@@ -391,7 +391,7 @@
 </tr>
 <tr>
 <td><code>fail</code></td>
-<td>1</td>
+<td>-1</td>
 <td>O nome do projeto já está cadastrado</td>
 </tr>
 </tbody>
@@ -432,7 +432,17 @@
 <tr>
 <td><code>success</code></td>
 <td>0</td>
-<td>projeto salvo com sucesso</td>
+<td>O projeto salvo com sucesso</td>
+</tr>
+<tr>
+<td><code>fail</code></td>
+<td>-1</td>
+<td>O nome do projeto já está cadastrado</td>
+</tr>
+<tr>
+<td><code>fail</code></td>
+<td>-2</td>
+<td>O projeto não existe</td>
 </tr>
 </tbody>
 </table>

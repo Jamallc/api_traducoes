@@ -6,7 +6,9 @@ Edita um projeto.
 
 status    | code | message
 ---       | ---  | ---
-`success` |  0   | projeto salvo com sucesso
+`success` |  0   | O projeto salvo com sucesso
+`fail`    |  -1  | O nome do projeto já está cadastrado
+`fail`    |  -2  | O projeto não existe
 
 + Parameters 
     + TOKEN: `ASDDF1234JKDFL=` (required, string) - Token.
