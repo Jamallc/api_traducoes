@@ -7,6 +7,7 @@ Exclui um projeto.
 status    | code | message
 ---       | ---  | ---
 `success` |  0   | projeto excluído com sucesso
+`fail`    |  -1  | O projeto não existe
 
 + Parameters 
     + TOKEN: `ASDDF1234JKDFL=` (required, string) - Token.

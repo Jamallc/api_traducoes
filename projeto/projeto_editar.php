@@ -10,7 +10,8 @@ $dados = json_decode($dados, true);
 
 if (
 	!array_key_exists("TOKEN", $dados) || ($dados["TOKEN"] === '') ||
-	!array_key_exists("USUARIO_ID", $dados) || ($dados["USUARIO_ID"] === '')
+	!array_key_exists("PROJETO_ID", $dados) || ($dados["PROJETO_ID"] === '') ||
+	!array_key_exists("Idioma", $dados) || ($dados["Idioma"] === '')
 ) {
 	$myObj = new stdClass();
 	$myObj->message = http_response_message(400);
@@ -18,118 +19,71 @@ if (
 	die($myJSON);
 }
 
-$token = validate_token($dados["TOKEN"]);
-if(!($token->data->id > 0)) {
-	$myObj = new stdClass();
-	$myObj->message = http_response_message(400);
-	$myJSON = json_encode($myObj);
-	die($myJSON);
-}
+$id_master = validate_token($dados["TOKEN"])->data->id;
 
-$senha = '';
-$param_senha = '';
-if ($dados["USUARIO_SENHA"]) {
+$stmt = $conn->prepare('
+	SELECT PROJETOS_NOME
+	FROM traducoes_projetos
+	WHERE
+	PROJETOS_ID = ? AND PROJETOS_EXCLUIDO IS NULL OR PROJETOS_EXCLUIDO = 0
+');
+$stmt->bind_param('s', $dados["PROJETO_ID"]);
+$stmt->execute();
+$result = $stmt->get_result();
 
-	$stmt = $conn->prepare('
-		SELECT USUARIO_SENHA
-		FROM traducoes_usuario
-		WHERE
-		USUARIO_ID = ? AND USUARIO_EXCLUIDO IS NULL OR USUARIO_EXCLUIDO = 0
-	');
-	$stmt->bind_param('s', $dados["USUARIO_SENHA"]);
-	$stmt->execute();
-	$result = $stmt->get_result();
-	$row = $result->fetch_assoc();
+if ($result->num_rows > 0) {
+	if ($dados["PROJETOS_NOME"]) {
+		$stmt = $conn->prepare('
+			SELECT PROJETOS_NOME
+			FROM traducoes_projetos
+			WHERE
+			PROJETOS_NOME = ? AND PROJETO_USUARIO_ID = ? AND PROJETOS_EXCLUIDO IS NULL OR PROJETOS_EXCLUIDO = 0
+		');
+		$stmt->bind_param('ss', $dados["PROJETOS_NOME"], $id_master);
+		$stmt->execute();
+		$result_name = $stmt->get_result();
 
-	$senha = $dados["USUARIO_SENHA_ANTERIOR"];
-	$salt = sprintf(
-		'$2y$%02d$%s',
-		13, // 2^n cost factor
-		substr(strtr(base64_encode($token_password), '+', '.'), 0, 22)
-	);
-	$hash = crypt($senha, $salt);
-	$hash = str_replace("\\", "", $hash);
-	$hash = str_replace("/", "", $hash);
-
-	if ($row["USUARIO_SENHA_ANTERIOR"] === $hash) {
-		$senha = $dados["USUARIO_SENHA"];
-		$salt = sprintf(
-			'$2y$%02d$%s',
-			13, // 2^n cost factor
-			substr(strtr(base64_encode($token_password), '+', '.'), 0, 22)
-		);
-		$hash = crypt($senha, $salt);
-		$hash = str_replace("\\", "", $hash);
-		$hash = str_replace("/", "", $hash);
-
-		$param_senha = ' USUARIO_SENHA = "' . $hash . '"';
-		if ($dados["USUARIO_NOME"] || $dados["USUARIO_EMAIL"])
-			$param_senha .= ", ";
-	} else {
-		$myObj = new stdClass();
-		$myObj->status = "fail";
-		$myObj->code = -2;
-		$myObj->message = "senha não confere";
-		$myJSON = json_encode($myObj);
-		http_response_code(200);
-		$stmt->close();
-		die($myJSON);
+		if ($result_name->num_rows > 0) {
+			$myObj = new stdClass();
+			$myObj->status = "fail";
+			$myObj->code = -1;
+			$myObj->message = "O nome do projeto já está cadastrado";
+			$myJSON = json_encode($myObj);
+			http_response_code(200);
+			$stmt->close();
+			die($myJSON);
+		}
 	}
-}
 
-$nome = '';
-$param_nome = '';
-if ($dados["USUARIO_NOME"]) {
-	$nome = tratar_nome(strtolower(trim($dados["USUARIO_NOME"])));
-
-	$param_nome = ' USUARIO_NOME = "' . $nome . '"';
-
-	if ($dados["USUARIO_EMAIL"])
-		$param_nome .= ', ';
-}
-
-$email = '';
-$param_email = '';
-if ($dados["USUARIO_EMAIL"]) {
-	$stmt = $conn->prepare('
-		SELECT USUARIO_EMAIL
-		FROM traducoes_usuario
-		WHERE
-		USUARIO_ID = ? AND USUARIO_EXCLUIDO IS NULL OR USUARIO_EXCLUIDO = 0
-	');
-	$stmt->bind_param('s', $dados["USUARIO_EMAIL"]);
-	$stmt->execute();
-	$result = $stmt->get_result();
-
-	if($result->num_rows > 0) {
-		$myObj = new stdClass();
-		$myObj->status = "fail";
-		$myObj->code = -1;
-		$myObj->message = "email já cadastrado";
-		$myJSON = json_encode($myObj);
-		http_response_code(200);
-		$stmt->close();
-		die($myJSON);
-	} else {
-		$email = strtolower(trim($dados["USUARIO_EMAIL"]));
-	
-		$param_email = ' USUARIO_EMAIL = "' . $email . '"';
+	$sql = 'UPDATE traducoes_projetos SET ';
+	$array_param = [];
+	if ($dados["PROJETO_NOME"]) {
+		$sql .= 'PROJETOS_NOME = "' . $dados["PROJETO_NOME"] . '"';
 	}
-}
+	if ($dados["PROJETO_DESCRICAO"]) {
+		if ($dados["PROJETO_NOME"]) $sql .= ', ';
+		$sql .= 'PROJETOS_DESCRICAO = "' . $dados["PROJETO_DESCRICAO"] . '" ';
+	}
+	$data_hora = strval(dateTimeNow());
+	$sql .= ', PROJETOS_ATUALIZACAO = "' . $data_hora . '" WHERE PROJETOS_ID = ?';
+	$edit = $conn->prepare($sql);
+	$edit->bind_param('i', $dados["PROJETO_ID"]);
+	$result = $edit->execute();
 
-$date = 'USUARIO_ATUALIZACAO = "' .dateTimeNow() . '",';
-$sql = 'UPDATE traducoes_usuario SET ' . $date . $param_senha . $param_nome . $param_email . ' WHERE USUARIO_ID = ?';
-$stmt = $conn->prepare($sql);
-$stmt->bind_param('i', $dados["USUARIO_ID"]);
-$result = $stmt->execute();
-
-if ($result > 0) {
 	$myObj = new stdClass();
 	$myObj->status = "success";
 	$myObj->code = 0;
-	$myObj->message = "perfil salvo com sucesso";
+	$myObj->message = "projeto salvo com sucesso";
 	$myJSON = json_encode($myObj);
 	http_response_code(200);
-	$stmt->close();
+	$edit->close();
+	die($myJSON);
+} else {
+	$myObj = new stdClass();
+	$myObj->status = "fail";
+	$myObj->code = -2;
+	$myObj->message = "O projeto não existe";
+	$myJSON = json_encode($myObj);
+	http_response_code(200);
 	die($myJSON);
 }

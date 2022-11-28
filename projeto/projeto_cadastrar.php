@@ -7,7 +7,6 @@ require_once $dir . "/geral/authenticate.php";
 
 $dados = file_get_contents("php://input");
 $dados = json_decode($dados, true);
-$dados = json_decode('{"PROJETO_NOME": "App Teste", "Idioma": "PT", "TOKEN": "ZXlKaGJHY2lPaUFpU0ZNeU5UWWlMQ0FpZEhsd0lqb2dJa3BYVkNKOS5leUpxZEdraU9pSXpNR1o0VFRWQk1XNWxVRWxIWlRoUFUwZG1ZbGQzUFQwaUxDSnBjM01pT2lKc2IyTmhiR2h2YzNRNk9EQXdNU0lzSW1saGRDSTZNVFkyT1RZMk5UTXhNU3dpWkdGMFlTSTZleUpwWkNJNk1uMTkucUN5cm5EV1czaDlhYnF0QUlqVUVibWo3cF9sT3FsZDdrU2Ezd0NPQWZIaw=="}', true);
 
 if (
 	!array_key_exists("TOKEN", $dados) || ($dados["TOKEN"] === '') ||
@@ -26,9 +25,9 @@ $stmt = $conn->prepare('
 	SELECT PROJETOS_NOME
 	FROM traducoes_projetos
 	WHERE
-	PROJETOS_NOME = ? AND PROJETOS_EXCLUIDO IS NULL OR PROJETOS_EXCLUIDO = 0
+	PROJETOS_NOME = ? AND PROJETO_USUARIO_ID = ? AND PROJETOS_EXCLUIDO IS NULL OR PROJETOS_EXCLUIDO = 0
 ');
-$stmt->bind_param('s', $dados["PROJETO_NOME"]);
+$stmt->bind_param('ss', $dados["PROJETO_NOME"], $id_master);
 $stmt->execute();
 $result = $stmt->get_result();
 

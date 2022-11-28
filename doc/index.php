@@ -483,6 +483,11 @@
 <td>0</td>
 <td>projeto excluído com sucesso</td>
 </tr>
+<tr>
+<td><code>fail</code></td>
+<td>-1</td>
+<td>O projeto não existe</td>
+</tr>
 </tbody>
 </table>
 <div class="title"><strong>URI Parameters</strong><div class="collapse-button show"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><dl class="inner"><dt>TOKEN</dt><dd><code>string</code>&nbsp;<span class="required">(required)</span>&nbsp;<span class="text-muted example"><strong>Example:&nbsp;</strong><span>ASDDF1234JKDFL=</span></span><p>Token.</p>
