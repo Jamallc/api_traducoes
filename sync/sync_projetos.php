@@ -1,15 +1,11 @@
 <?php
-$dados = file_get_contents("php://input");
-$dados = json_decode($dados, true);
-$dados = json_decode('{
-	"TOKEN": "ZXlKaGJHY2lPaUFpU0ZNeU5UWWlMQ0FpZEhsd0lqb2dJa3BYVkNKOS5leUpxZEdraU9pSlZOVEpWUldWc05rMHJRVmhqWm1WcVFXODVORlZCUFQwaUxDSnBjM01pT2lKc2IyTmhiR2h2YzNRNk9EQXdNU0lzSW1saGRDSTZNVFkzTURBd01URXhNQ3dpWkdGMFlTSTZleUpwWkNJNk1uMTkubVJNcm01MW9CYVY1R212b2htWWo3N19qTzRLZzVzYnUtZGU3SVFWY0ZyVQ==",
-	"Idioma": "pt"
-}', true);
 $dir = dirname(__DIR__);
-
 
 require_once $dir . "/geral/credentials.php";
 require_once $dir . "/geral/authenticate.php";
+
+$dados = file_get_contents("php://input");
+$dados = json_decode($dados, true);
 
 if (
 	!array_key_exists("TOKEN", $dados) || ($dados["TOKEN"] === '') ||
