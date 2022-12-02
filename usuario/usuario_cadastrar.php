@@ -34,7 +34,7 @@ $stmt = $conn->prepare('
 	SELECT *
 	FROM traducoes_projetos
 	WHERE
-	PROJETOS_ID = ? AND PROJETOS_EXCLUIDO IS NULL OR PROJETOS_EXCLUIDO = 0
+	PROJETOS_ID = ? AND (PROJETOS_EXCLUIDO IS NULL OR PROJETOS_EXCLUIDO = 0)
 ');
 $stmt->bind_param('s', $dados["PROJETO_ID"]);
 $stmt->execute();
@@ -55,7 +55,7 @@ $stmt = $conn->prepare('
 	SELECT *
 	FROM traducoes_usuario
 	WHERE
-	USUARIO_EMAIL = ? AND USUARIO_EXCLUIDO IS NULL OR USUARIO_EXCLUIDO = 0
+	USUARIO_EMAIL = ? AND (USUARIO_EXCLUIDO IS NULL OR USUARIO_EXCLUIDO = 0)
 ');
 $stmt->bind_param('s', $email);
 $stmt->execute();

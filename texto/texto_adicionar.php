@@ -30,7 +30,7 @@ if ($id_master) {
 		WHERE
 		TEXTOS_ID_FRASE = ? AND 
 		TEXTOS_LINGUAS_ID = ? AND 
-		TEXTOS_EXCLUIDO IS NULL OR TEXTOS_EXCLUIDO = 0
+		(TEXTOS_EXCLUIDO IS NULL OR TEXTOS_EXCLUIDO = 0)
 	');
 	$stmt->bind_param('ss', $dados["TEXTO_ID_FRASE"], $dados["LINGUA_ID"]);
 	$stmt->execute();

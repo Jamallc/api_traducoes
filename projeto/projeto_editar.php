@@ -37,7 +37,7 @@ if ($result->num_rows > 0) {
 			SELECT PROJETOS_NOME
 			FROM traducoes_projetos
 			WHERE
-			PROJETOS_NOME = ? AND PROJETO_USUARIO_ID = ? AND PROJETOS_EXCLUIDO IS NULL OR PROJETOS_EXCLUIDO = 0
+			PROJETOS_NOME = ? AND PROJETO_USUARIO_ID = ? AND (PROJETOS_EXCLUIDO IS NULL OR PROJETOS_EXCLUIDO = 0)
 		');
 		$stmt->bind_param('ss', $dados["PROJETOS_NOME"], $id_master);
 		$stmt->execute();

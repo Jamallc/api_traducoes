@@ -26,7 +26,7 @@ if($id_master){
 		SELECT TEXTOS_ID_FRASE
 		FROM traducoes_textos
 		WHERE
-		TEXTOS_ID = ? AND TEXTOS_EXCLUIDO IS NULL OR TEXTOS_EXCLUIDO = 0
+		TEXTOS_ID = ? AND (TEXTOS_EXCLUIDO IS NULL OR TEXTOS_EXCLUIDO = 0)
 	');
 	$stmt->bind_param('s', $dados["TEXTO_ID"]);
 	$stmt->execute();

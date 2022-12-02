@@ -30,7 +30,7 @@ if ($id_master) {
 		(LINGUAS_NOME = ? OR 
 		LINGUAS_SIGLA = ?) AND 
 		LINGUAS_PROJETOS_ID = ? AND 
-		LINGUAS_EXCLUIDO IS NULL OR LINGUAS_EXCLUIDO = 0
+		(LINGUAS_EXCLUIDO IS NULL OR LINGUAS_EXCLUIDO = 0)
 	');
 	$stmt->bind_param('sss', $dados["LINGUA_NOME"], $dados["LINGUA_SIGLA"], $dados["PROJETO_ID"]);
 	$stmt->execute();

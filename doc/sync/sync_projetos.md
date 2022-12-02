@@ -25,25 +25,34 @@ status    | code | message
         "message": "success",
         "projetos": [
             {
-                PROJETO_ID: 20,
-                PROJETO_NOME: "Traduções APP",
-                PROJETO_DESCRICAO: "Aplicativo para adicionar traduções nos apps",
-                PROJETO_CRIACAO: "2022-04-01 12:30:07",
-                PROJETO_ATUALIZACAO: "2022-07-04 16:24:38",
+                "PROJETOS_ID": 1,
+                "PROJETOS_NOME": "App Traduções",
+                "PROJETOS_DESCRICAO": "Um aplicativo que cria as traduções de outros aplicativos!",
+                "PROJETOS_CRIACAO": "2022-09-04 17:44:17",
+                "PROJETOS_ATUALIZACAO": "2022-09-04 17:44:17",
+                "PROJETOS_EXCLUIDO": null,
+                "PROJETO_USUARIO_ID": 1,
+                "NIVEL_PERMISSOES": 2
             },
             {
-                PROJETO_ID: 21,
-                PROJETO_NOME: "Traduções APP",
-                PROJETO_DESCRICAO: "Aplicativo para adicionar traduções nos apps",
-                PROJETO_CRIACAO: "2022-04-01 12:30:07",
-                PROJETO_ATUALIZACAO: "2022-07-04 16:24:38",
+                "PROJETOS_ID": 3,
+                "PROJETOS_NOME": "App Teste",
+                "PROJETOS_DESCRICAO": "Descrição de teste",
+                "PROJETOS_CRIACAO": "2022-11-28 16:56:41",
+                "PROJETOS_ATUALIZACAO": "2022-11-28 17:49:56",
+                "PROJETOS_EXCLUIDO": 0,
+                "PROJETO_USUARIO_ID": 2,
+                "NIVEL_PERMISSOES": 1
             },
             {
-                PROJETO_ID: 22,
-                PROJETO_NOME: "Traduções APP",
-                PROJETO_DESCRICAO: "Aplicativo para adicionar traduções nos apps",
-                PROJETO_CRIACAO: "2022-04-01 12:30:07",
-                PROJETO_ATUALIZACAO: "2022-07-04 16:24:38",
+                "PROJETOS_ID": 4,
+                "PROJETOS_NOME": "Aasdasdas",
+                "PROJETOS_DESCRICAO": "Descrição de teste 2",
+                "PROJETOS_CRIACAO": "2022-12-02 14:55:28",
+                "PROJETOS_ATUALIZACAO": "2022-12-02 14:55:28",
+                "PROJETOS_EXCLUIDO": null,
+                "PROJETO_USUARIO_ID": 2,
+                "NIVEL_PERMISSOES": 1
             }
         ]
     }

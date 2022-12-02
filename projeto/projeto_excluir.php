@@ -25,7 +25,7 @@ $stmt = $conn->prepare('
 	SELECT PROJETOS_NOME
 	FROM traducoes_projetos
 	WHERE
-	PROJETOS_ID = ? AND PROJETOS_EXCLUIDO IS NULL OR PROJETOS_EXCLUIDO = 0
+	PROJETOS_ID = ? AND (PROJETOS_EXCLUIDO IS NULL OR PROJETOS_EXCLUIDO = 0)
 ');
 $stmt->bind_param('s', $dados["PROJETO_ID"]);
 $stmt->execute();

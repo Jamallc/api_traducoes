@@ -789,33 +789,42 @@ arquivo <span class="hljs-number">2</span>: txt.interface.ts =&gt;
     "<span class="hljs-attribute">TOKEN</span>": <span class="hljs-value"><span class="hljs-string">"ASDDF1234JKDFL="</span></span>,
     "<span class="hljs-attribute">Idioma</span>": <span class="hljs-value"><span class="hljs-string">"pt"</span></span>,
 }</code></pre><div style="height: 1px;"></div></div></div><div class="tabs"><div class="example-names"><span>Responses</span><span class="tab-button">200</span><span class="tab-button">400</span><span class="tab-button">401</span><span class="tab-button">404</span></div><div class="tab"><div><div class="inner"><h5>Body</h5><pre><code>{
-    <span class="hljs-string">"status"</span>: <span class="hljs-string">"success"</span>,
-    <span class="hljs-string">"code"</span>: <span class="hljs-number">0</span>,
-    <span class="hljs-string">"message"</span>: <span class="hljs-string">"success"</span>,
-    <span class="hljs-string">"projetos"</span>: [
-        {
-            PROJETO_ID: <span class="hljs-number">20</span>,
-            PROJETO_NOME: <span class="hljs-string">"Traduções APP"</span>,
-            PROJETO_DESCRICAO: <span class="hljs-string">"Aplicativo para adicionar traduções nos apps"</span>,
-            PROJETO_CRIACAO: <span class="hljs-string">"2022-04-01 12:30:07"</span>,
-            PROJETO_ATUALIZACAO: <span class="hljs-string">"2022-07-04 16:24:38"</span>,
-        },
-        {
-            PROJETO_ID: <span class="hljs-number">21</span>,
-            PROJETO_NOME: <span class="hljs-string">"Traduções APP"</span>,
-            PROJETO_DESCRICAO: <span class="hljs-string">"Aplicativo para adicionar traduções nos apps"</span>,
-            PROJETO_CRIACAO: <span class="hljs-string">"2022-04-01 12:30:07"</span>,
-            PROJETO_ATUALIZACAO: <span class="hljs-string">"2022-07-04 16:24:38"</span>,
-        },
-        {
-            PROJETO_ID: <span class="hljs-number">22</span>,
-            PROJETO_NOME: <span class="hljs-string">"Traduções APP"</span>,
-            PROJETO_DESCRICAO: <span class="hljs-string">"Aplicativo para adicionar traduções nos apps"</span>,
-            PROJETO_CRIACAO: <span class="hljs-string">"2022-04-01 12:30:07"</span>,
-            PROJETO_ATUALIZACAO: <span class="hljs-string">"2022-07-04 16:24:38"</span>,
-        }
-    ]
-}</code></pre><div style="height: 1px;"></div></div></div></div><div class="tab"><div><div class="inner"><h5>Body</h5><pre><code>{
+  "<span class="hljs-attribute">status</span>": <span class="hljs-value"><span class="hljs-string">"success"</span></span>,
+  "<span class="hljs-attribute">code</span>": <span class="hljs-value"><span class="hljs-number">0</span></span>,
+  "<span class="hljs-attribute">message</span>": <span class="hljs-value"><span class="hljs-string">"success"</span></span>,
+  "<span class="hljs-attribute">projetos</span>": <span class="hljs-value">[
+    {
+      "<span class="hljs-attribute">PROJETOS_ID</span>": <span class="hljs-value"><span class="hljs-number">1</span></span>,
+      "<span class="hljs-attribute">PROJETOS_NOME</span>": <span class="hljs-value"><span class="hljs-string">"App Traduções"</span></span>,
+      "<span class="hljs-attribute">PROJETOS_DESCRICAO</span>": <span class="hljs-value"><span class="hljs-string">"Um aplicativo que cria as traduções de outros aplicativos!"</span></span>,
+      "<span class="hljs-attribute">PROJETOS_CRIACAO</span>": <span class="hljs-value"><span class="hljs-string">"2022-09-04 17:44:17"</span></span>,
+      "<span class="hljs-attribute">PROJETOS_ATUALIZACAO</span>": <span class="hljs-value"><span class="hljs-string">"2022-09-04 17:44:17"</span></span>,
+      "<span class="hljs-attribute">PROJETOS_EXCLUIDO</span>": <span class="hljs-value"><span class="hljs-literal">null</span></span>,
+      "<span class="hljs-attribute">PROJETO_USUARIO_ID</span>": <span class="hljs-value"><span class="hljs-number">1</span></span>,
+      "<span class="hljs-attribute">NIVEL_PERMISSOES</span>": <span class="hljs-value"><span class="hljs-number">2</span>
+    </span>},
+    {
+      "<span class="hljs-attribute">PROJETOS_ID</span>": <span class="hljs-value"><span class="hljs-number">3</span></span>,
+      "<span class="hljs-attribute">PROJETOS_NOME</span>": <span class="hljs-value"><span class="hljs-string">"App Teste"</span></span>,
+      "<span class="hljs-attribute">PROJETOS_DESCRICAO</span>": <span class="hljs-value"><span class="hljs-string">"Descrição de teste"</span></span>,
+      "<span class="hljs-attribute">PROJETOS_CRIACAO</span>": <span class="hljs-value"><span class="hljs-string">"2022-11-28 16:56:41"</span></span>,
+      "<span class="hljs-attribute">PROJETOS_ATUALIZACAO</span>": <span class="hljs-value"><span class="hljs-string">"2022-11-28 17:49:56"</span></span>,
+      "<span class="hljs-attribute">PROJETOS_EXCLUIDO</span>": <span class="hljs-value"><span class="hljs-number">0</span></span>,
+      "<span class="hljs-attribute">PROJETO_USUARIO_ID</span>": <span class="hljs-value"><span class="hljs-number">2</span></span>,
+      "<span class="hljs-attribute">NIVEL_PERMISSOES</span>": <span class="hljs-value"><span class="hljs-number">1</span>
+    </span>},
+    {
+      "<span class="hljs-attribute">PROJETOS_ID</span>": <span class="hljs-value"><span class="hljs-number">4</span></span>,
+      "<span class="hljs-attribute">PROJETOS_NOME</span>": <span class="hljs-value"><span class="hljs-string">"Aasdasdas"</span></span>,
+      "<span class="hljs-attribute">PROJETOS_DESCRICAO</span>": <span class="hljs-value"><span class="hljs-string">"Descrição de teste 2"</span></span>,
+      "<span class="hljs-attribute">PROJETOS_CRIACAO</span>": <span class="hljs-value"><span class="hljs-string">"2022-12-02 14:55:28"</span></span>,
+      "<span class="hljs-attribute">PROJETOS_ATUALIZACAO</span>": <span class="hljs-value"><span class="hljs-string">"2022-12-02 14:55:28"</span></span>,
+      "<span class="hljs-attribute">PROJETOS_EXCLUIDO</span>": <span class="hljs-value"><span class="hljs-literal">null</span></span>,
+      "<span class="hljs-attribute">PROJETO_USUARIO_ID</span>": <span class="hljs-value"><span class="hljs-number">2</span></span>,
+      "<span class="hljs-attribute">NIVEL_PERMISSOES</span>": <span class="hljs-value"><span class="hljs-number">1</span>
+    </span>}
+  ]
+</span>}</code></pre><div style="height: 1px;"></div></div></div></div><div class="tab"><div><div class="inner"><h5>Body</h5><pre><code>{
   "<span class="hljs-attribute">code</span>": <span class="hljs-value"><span class="hljs-number">400</span></span>,
   "<span class="hljs-attribute">message</span>": <span class="hljs-value"><span class="hljs-string">"Bad request"</span>
 </span>}</code></pre><div style="height: 1px;"></div></div></div></div><div class="tab"><div><div class="inner"><h5>Body</h5><pre><code>{
@@ -1065,7 +1074,7 @@ arquivo <span class="hljs-number">2</span>: txt.interface.ts =&gt;
 <div class="title"><strong>URI Parameters</strong><div class="collapse-button show"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><dl class="inner"><dt>TOKEN</dt><dd><code>string</code>&nbsp;<span class="required">(required)</span>&nbsp;<span class="text-muted example"><strong>Example:&nbsp;</strong><span>ASDDF1234JKDFL=</span></span><p>Token.</p>
 </dd><dt>USUARIO_ID</dt><dd><code>string</code>&nbsp;<span class="required">(required)</span>&nbsp;<span class="text-muted example"><strong>Example:&nbsp;</strong><span>20</span></span><p>Id do projeto.</p>
 </dd><dt>Idioma</dt><dd><code>string</code>&nbsp;<span class="required">(required)</span>&nbsp;<span class="text-muted example"><strong>Example:&nbsp;</strong><span>pt</span></span><p>Idioma.</p>
-</dd></dl></div></div></div><hr class="split"><div class="middle"><p style="text-align: center;" class="text-muted">Generated by&nbsp;<a href="https://github.com/danielgtaylor/aglio" class="aglio">aglio</a>&nbsp;on 28 Nov 2022</p></div></div></div></div><script>/* eslint-env browser */
+</dd></dl></div></div></div><hr class="split"><div class="middle"><p style="text-align: center;" class="text-muted">Generated by&nbsp;<a href="https://github.com/danielgtaylor/aglio" class="aglio">aglio</a>&nbsp;on 02 Dec 2022</p></div></div></div></div><script>/* eslint-env browser */
 /* eslint quotes: [2, "single"] */
 'use strict';
 

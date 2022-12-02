@@ -25,7 +25,7 @@ $stmt = $conn->prepare('
 	SELECT LINGUAS_NOME
 	FROM traducoes_linguas
 	WHERE
-	LINGUAS_ID = ? AND LINGUAS_EXCLUIDO IS NULL OR LINGUAS_EXCLUIDO = 0
+	LINGUAS_ID = ? AND (LINGUAS_EXCLUIDO IS NULL OR LINGUAS_EXCLUIDO = 0)
 ');
 $stmt->bind_param('s', $dados["LINGUA_ID"]);
 $stmt->execute();

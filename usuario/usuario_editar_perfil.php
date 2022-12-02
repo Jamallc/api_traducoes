@@ -95,7 +95,7 @@ if ($dados["USUARIO_EMAIL"]) {
 		SELECT USUARIO_EMAIL
 		FROM traducoes_usuario
 		WHERE
-		USUARIO_ID = ? AND USUARIO_EXCLUIDO IS NULL OR USUARIO_EXCLUIDO = 0
+		USUARIO_ID = ? AND (USUARIO_EXCLUIDO IS NULL OR USUARIO_EXCLUIDO = 0)
 	');
 	$stmt->bind_param('s', $dados["USUARIO_EMAIL"]);
 	$stmt->execute();

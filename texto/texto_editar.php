@@ -28,7 +28,7 @@ if ($id_master) {
 			FROM traducoes_textos
 			WHERE
 			TEXTOS_ID = ? AND 
-			TEXTOS_EXCLUIDO IS NULL OR TEXTOS_EXCLUIDO = 0
+			(TEXTOS_EXCLUIDO IS NULL OR TEXTOS_EXCLUIDO = 0)
 		');
 		$stmt->bind_param('s', $dados["TEXTO_ID"]);
 		$stmt->execute();
