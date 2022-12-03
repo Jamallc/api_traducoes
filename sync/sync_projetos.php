@@ -24,7 +24,7 @@ $stmt = $conn->prepare('
 	FROM traducoes_nivel
 	WHERE
 	TRADUCOES_USUARIO_ID = ? AND 
-	NIVEL_EXCLUIDO IS NULL OR NIVEL_EXCLUIDO = 0
+	(NIVEL_EXCLUIDO IS NULL OR NIVEL_EXCLUIDO = 0)
 ');
 $stmt->bind_param('s', $id_master);
 $stmt->execute();
@@ -39,7 +39,7 @@ if ($result->num_rows > 0) {
 			FROM traducoes_projetos
 			WHERE
 			PROJETOS_ID = ? AND 
-			PROJETOS_EXCLUIDO IS NULL OR PROJETOS_EXCLUIDO = 0
+			(PROJETOS_EXCLUIDO IS NULL OR PROJETOS_EXCLUIDO = 0)
 		');
 		$stmt->bind_param('s', $row["TRADUCOES_PROJETO_ID"]);
 		$stmt->execute();
@@ -56,7 +56,7 @@ $stmt = $conn->prepare('
 	FROM traducoes_projetos
 	WHERE
 	PROJETO_USUARIO_ID = ? AND 
-	PROJETOS_EXCLUIDO IS NULL OR PROJETOS_EXCLUIDO = 0
+	(PROJETOS_EXCLUIDO IS NULL OR PROJETOS_EXCLUIDO = 0)
 ');
 $stmt->bind_param('s', $id_master);
 $stmt->execute();
