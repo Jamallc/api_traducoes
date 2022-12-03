@@ -63,7 +63,7 @@ $myObj = new stdClass();
 $myObj->status = "success";
 $myObj->code = 0;
 $myObj->message = "success";
-$myObj->projetos = $usuarios_associados;
+$myObj->editores = $usuarios_associados;
 $myJSON = json_encode($myObj);
 http_response_code(200);
 $stmt->close();

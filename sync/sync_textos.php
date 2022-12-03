@@ -6,6 +6,11 @@ require_once $dir . "/geral/authenticate.php";
 
 $dados = file_get_contents("php://input");
 $dados = json_decode($dados, true);
+$dados = json_decode('{
+	"TOKEN": "ZXlKaGJHY2lPaUFpU0ZNeU5UWWlMQ0FpZEhsd0lqb2dJa3BYVkNKOS5leUpxZEdraU9pSnRZM1IwTVZGUGFtUTNjRmxSTlV4VGNIVnlTbFIzUFQwaUxDSnBjM01pT2lKc2IyTmhiR2h2YzNRNk9EQXdNU0lzSW1saGRDSTZNVFkzTURBNU5EZzNOU3dpWkdGMFlTSTZleUpwWkNJNk1uMTkudEl6Y0tteGRnQW1fVjFSZzhTX0VuSW1rMGRGaVU1cHFkSDVzQzVpT0VmRQ==",
+	"LINGUA_ID": "1",
+	"Idioma": "pt"
+}', true);
 
 if (
   !array_key_exists("TOKEN", $dados) || ($dados["TOKEN"] === '') ||
@@ -49,7 +54,7 @@ $myObj = new stdClass();
 $myObj->status = "success";
 $myObj->code = 0;
 $myObj->message = "success";
-$myObj->projetos = $textos_associadas;
+$myObj->textos = $textos_associadas;
 $myJSON = json_encode($myObj);
 http_response_code(200);
 $stmt->close();
