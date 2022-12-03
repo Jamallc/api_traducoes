@@ -34,7 +34,7 @@ if ($dados["USUARIO_SENHA"]) {
 		SELECT USUARIO_SENHA
 		FROM traducoes_usuario
 		WHERE
-		USUARIO_ID = ? AND USUARIO_EXCLUIDO IS NULL OR USUARIO_EXCLUIDO = 0
+		USUARIO_ID = ? AND (USUARIO_EXCLUIDO IS NULL OR USUARIO_EXCLUIDO = 0)
 	');
 	$stmt->bind_param('s', $dados["USUARIO_SENHA"]);
 	$stmt->execute();
