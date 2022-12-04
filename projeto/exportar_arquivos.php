@@ -20,3 +20,11 @@ if (
 }
 
 $id_master = validate_token($dados["TOKEN"])->data->id;
+
+if(!$id_master) {
+  $myObj = new stdClass();
+	$myObj->message = http_response_message(400);
+	$myJSON = json_encode($myObj);
+	die($myJSON);
+}
+
