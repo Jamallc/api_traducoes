@@ -27,7 +27,7 @@ Consulte **[Implantação](#-implanta%C3%A7%C3%A3o)** para saber como implantar 
   
 |Desktop|Ultra Wide|
 |:---:|:---:|
-|<kbd><img src="./carteira/carteira_publica/previews/desktop_preview.jpg" alt="Desktop"/></kbd>|<kbd><img src="./carteira/carteira_publica/previews/ultraWide_preview.jpg" alt="Ultra Wide"/></kbd>|
+|<kbd><img src="./carteira/carteira_publica/previews/desktop_preview.jpg" alt="Desktop"/></kbd>|<kbd><img src="./doc.PNG" alt="Ultra Wide"/></kbd>|
 
 ### :iphone: Responsividade
 
@@ -38,21 +38,9 @@ Consulte **[Implantação](#-implanta%C3%A7%C3%A3o)** para saber como implantar 
 </div>
   
 ---
-## :information_source: Sobre
+> ⚠️ O servidor de desenvolvimento foi iniciado: localmente com o banco de dados.
 
-Este projeto já foi desenvolvido antes por mim em react, então resolvi desenvolve-lo em PHP, gostei e quis colocar também um back-end, banco de dados e colocá-lo para funcionar
-normalmente com qualquer um podendo usar (<a href="carteira-virtual.com">Site do projeto</a>). É uma carteira virtual, podendo então cadastrar entradas e saídas dos ganhos e compras, dessa forma obtendo um bom controle da economia.
-
-
-</details>
-
-> ⚠️ O servidor de desenvolvimento foi iniciado: localmente em <http://localhost/NOME_DA_PASTA> e posteriormente colocado em uma hospedagem.
-
-Qualquer um que fizer o download, poderá executar o projeto localmente.
-
-OBS: não estou disponibilizando o banco de dados nos download. Toda a amostra é somente para ver os códigos do projeto. 
-O projeto pode ser acessado no site: <a href="carteira-virtual.com">Carteira Virtual</a>
-
+Qualquer um que fizer o download, poderá executar o projeto, precisando apenas de um servidor local e executar o SQL script, configurando também o banco no projeto, em geral/credetials.php.
 
 ---
 ## :boy: **Autor**
