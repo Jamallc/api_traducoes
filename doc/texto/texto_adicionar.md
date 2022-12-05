@@ -14,7 +14,7 @@ status    | code | message
     + TEXTO_FRASE: `Uma nova frase` (required, string) - Frase da tradução.
     + TEXTO_SIGLA: `PT` (required, string) - Sigla da língua.
     + TEXTO_ID_FRASE: `nova_frase` (required, string) - Id da frase.
-    + LINGUA_ID: `20` (required, string) - Id da língua.
+    + PROJETO_ID: `20` (required, string) - Id do projeto.
     + Idioma: `pt`(required, string) - Idioma.
 
 + Request texto_adicionar
@@ -23,7 +23,7 @@ status    | code | message
         "TEXTO_FRASE": "Uma nova frase",
         "TEXTO_SIGLA": "PT",
         "TEXTO_ID_FRASE": "nova_frase",
-        "LINGUA_ID": "20",
+        "PROJETO_ID": "20",
         "Idioma": "pt",
     }
 

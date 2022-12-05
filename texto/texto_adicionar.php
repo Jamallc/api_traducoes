@@ -13,7 +13,7 @@ if (
 	!array_key_exists("TEXTO_FRASE", $dados) || ($dados["TEXTO_FRASE"] === '') ||
 	!array_key_exists("TEXTO_SIGLA", $dados) || ($dados["TEXTO_SIGLA"] === '') ||
 	!array_key_exists("TEXTO_ID_FRASE", $dados) || ($dados["TEXTO_ID_FRASE"] === '') ||
-	!array_key_exists("LINGUA_ID", $dados) || ($dados["LINGUA_ID"] === '') ||
+	!array_key_exists("PROJETO_ID", $dados) || ($dados["PROJETO_ID"] === '') ||
 	!array_key_exists("Idioma", $dados) || ($dados["Idioma"] === '')
 ) {
 	$myObj = new stdClass();
@@ -30,9 +30,10 @@ if ($id_master) {
 		WHERE
 		TEXTOS_ID_FRASE = ? AND 
 		TEXTOS_LINGUAS_ID = ? AND 
+		TEXTOS_SIGLA = ? AND 
 		(TEXTOS_EXCLUIDO IS NULL OR TEXTOS_EXCLUIDO = 0)
 	');
-	$stmt->bind_param('ss', $dados["TEXTO_ID_FRASE"], $dados["LINGUA_ID"]);
+	$stmt->bind_param('sss', $dados["TEXTO_ID_FRASE"], $dados["PROJETO_ID"], $dados["TEXTO_SIGLA"]);
 	$stmt->execute();
 	$result = $stmt->get_result();
 
@@ -53,7 +54,7 @@ if ($id_master) {
 				TEXTOS_SIGLA,
 				TEXTOS_CRIACAO,
 				TEXTOS_ATUALIZACAO,
-				TEXTOS_LINGUAS_ID
+				TEXTOS_PROJETO_ID
 			) VALUES (?,?,?,?,?,?)
 		');
 
@@ -66,7 +67,7 @@ if ($id_master) {
 			$dados["TEXTO_SIGLA"],
 			$data_hora,
 			$data_hora,
-			$dados["LINGUA_ID"]
+			$dados["PROJETO_ID"]
 		);
 		$stmt->execute();
 
