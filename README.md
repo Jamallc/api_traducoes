@@ -5,7 +5,7 @@
   </a>
 <p>
 
-# Aplicativo de Traduções (REDME EM CONTRUÇÃO)
+# Aplicativo de Traduções
 
 Os apps em geral precisam de tradução, não existe uma forma padrão para fazer isso, neste caso, esse app existe para resolver esse problema, é inteiramente voltado para desenvolvedores que precisam traduzir seus aplicativos!
 
