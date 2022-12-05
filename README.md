@@ -40,7 +40,7 @@ Qualquer um que fizer o download, poderá executar o projeto, precisando apenas 
 <div align="center">
 
 <a href="https://github.com/Jamallc">
- <img src="https://avatars1.githubusercontent.com/u/9919?s=200&v=4" width="100px;" alt="Imagem de Perfil Nome Sobrenome"/>
+ <img src="https://github.com/Jamallc.png" width="100px;" alt="Imagem de Perfil Nome Sobrenome"/>
  <br/>
  <sub><b>Weber Rocha</b></sub>
 </a>
