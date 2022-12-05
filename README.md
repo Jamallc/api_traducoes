@@ -13,9 +13,7 @@ Os apps em geral precisam de tradução, não existe uma forma padrão para faze
 
 ## 🚀 Começando
 
-Essas instruções permitirão que você obtenha uma cópia do projeto em operação na sua máquina local para fins de desenvolvimento e teste.
-
-Consulte **[Implantação](#-implanta%C3%A7%C3%A3o)** para saber como implantar o projeto.
+Tenha instalado no seu computador um servidor PHP, crie o banco de dador usando o SQL script.sql já localizado na pasta, faça as configurações do servidor e pronto, use essa API como quiser!
 
 ---
 
