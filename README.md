@@ -25,18 +25,10 @@ Consulte **[Implantação](#-implanta%C3%A7%C3%A3o)** para saber como implantar 
 
 ### :desktop_computer: Computador
   
-|Desktop|Ultra Wide|
-|:---:|:---:|
-|<kbd><img src="./carteira/carteira_publica/previews/desktop_preview.jpg" alt="Desktop"/></kbd>|<kbd><img src="./doc.PNG" alt="Ultra Wide"/></kbd>|
+|Desktop|
+|:---:|
+|<kbd><img src="./doc.PNG" alt="Desktop"/></kbd>|
 
-### :iphone: Responsividade
-
-|Tablet|Mobile|
-|:---:|:---:|
-|<kbd><img src="./carteira/carteira_publica/previews/tablet_preview.jpg" alt="Tablet"/></kbd>|<kbd><img src="./carteira/carteira_publica/previews/mobile_preview.jpg" alt="Mobile"/></kbd>
-
-</div>
-  
 ---
 > ⚠️ O servidor de desenvolvimento foi iniciado: localmente com o banco de dados.
 
