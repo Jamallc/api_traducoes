@@ -5,7 +5,7 @@
   </a>
 <p>
 
-# Aplicativo de Traduções
+# Aplicativo de Traduções API
 
 Os apps em geral precisam de tradução, não existe uma forma padrão para fazer isso, neste caso, esse app existe para resolver esse problema, é inteiramente voltado para desenvolvedores que precisam traduzir seus aplicativos!
 
